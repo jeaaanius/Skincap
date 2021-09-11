@@ -6,5 +6,6 @@
 
     <include app:graph="@navigation/home" />
     <include app:graph="@navigation/check_skin" />
+    <include app:graph="@navigation/journal" />
 
 </navigation>
