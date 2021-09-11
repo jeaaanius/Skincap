@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skincap">
         <activity
-            android:name=".SplashScreen"
+            android:name=".ui.LauncherActivity"
             android:theme="@style/SplashScreen"
             android:exported="true">
             <intent-filter>
@@ -20,8 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.Skincap">
+            android:name=".ui.MainActivity">
         </activity>
     </application>
 
