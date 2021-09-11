@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Skincap</string>
+
+    <!-- Bottom Navigation -->
+    <string name="home">Home</string>
+    <string name="check_skin">Check Skin</string>
+    <string name="journal">Journal</string>
+    <string name="library">Library</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+
 </resources>
