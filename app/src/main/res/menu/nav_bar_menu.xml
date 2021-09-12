@@ -12,7 +12,7 @@
         android:icon="@drawable/ic_checkskin"/>
 
     <item
-        android:id="@+id/journalFragment"
+        android:id="@+id/journal"
         android:title="@string/journal"
         android:icon="@drawable/ic_journal"/>
 
