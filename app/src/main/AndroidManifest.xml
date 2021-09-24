@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Skincap">
         <activity
             android:name=".ui.LauncherActivity"
+            android:noHistory="true"
             android:theme="@style/SplashScreen"
             android:exported="true">
             <intent-filter>
