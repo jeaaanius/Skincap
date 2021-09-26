@@ -11,7 +11,21 @@
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
     <string name="start_your_skin_care_journey">Start your Skin Care Journey</string>
+    <string name="discover_your_skin">Discover your skin for your\nskin care journey</string>
     <string name="check_your_skin">Check your Skin</string>
     <string name="no_new_notifications">No new notifications</string>
+
+    <!--OnBoarding Screen -->
+    <string name="first_slide_title">Welcome to SkinCap!</string>
+    <string name="second_slide_title">Snap, Analyze, Manage</string>
+    <string name="third_slide_title">Skin Journal</string>
+    <string name="fourth_slide_title">Product Recommendations</string>
+    <!-- Descriptions -->
+    <string name="first_slide_desc">Image Processing for Skin Care Recommender with Skin Analyzer</string>
+    <string name="second_slide_desc">Detect skin type and issue by taking photos or import from your gallery</string>
+    <string name="third_slide_desc">Easily compare photos while making entries to track your progress</string>
+    <string name="fourth_slide_desc">Get personalized recommendations based on your skin type and skin care ingredients</string>
+    <!--Buttons-->
+    <string name="get_started">GET STARTED</string>
 
 </resources>
