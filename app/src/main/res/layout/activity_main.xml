@@ -20,7 +20,7 @@
             android:id="@+id/app_icon"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@drawable/skincap_logo" />
+            android:src="@drawable/ic_skincap_logo" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
