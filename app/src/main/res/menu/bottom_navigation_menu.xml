@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="@string/home"
+        android:fontFamily="@font/montserrat"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/check_skin"
+        android:title="@string/check_skin"
+        android:icon="@drawable/ic_checkskin"/>
+
+    <item
+        android:id="@+id/journalFragment"
+        android:title="@string/journal"
+        android:icon="@drawable/ic_journal"/>
+
+    <item
+        android:id="@+id/libraryFragment"
+        android:title="@string/library"
+        android:icon="@drawable/ic_library"/>
+
+</menu>
