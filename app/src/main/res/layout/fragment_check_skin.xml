@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="16dp"
-        android:text="Discover your skin for your\nskin care journey"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/discover_your_skin"
         android:textColor="@color/light_brown" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +37,7 @@
             android:id="@+id/camera_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:fontFamily="@font/montserrat_bold"
             android:text="@string/camera"
             app:cornerRadius="8dp"
             app:icon="@drawable/ic_camera"
@@ -49,6 +50,7 @@
             android:id="@+id/gallery_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
             android:text="@string/gallery"
             app:cornerRadius="8dp"
             app:icon="@drawable/ic_gallery"
