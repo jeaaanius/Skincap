@@ -20,7 +20,7 @@
             android:id="@+id/skin_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_check_skin_snap" />
+            android:src="@drawable/ic_skin_care_journey" />
 
         <TextView
             android:id="@+id/skin_care_message"
@@ -29,6 +29,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="16dp"
+            android:fontFamily="@font/montserrat"
             android:text="@string/start_your_skin_care_journey"
             android:textColor="@color/light_brown"
             android:textStyle="italic" />
@@ -39,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/check_your_skin"
+            android:fontFamily="@font/montserrat_bold"
             app:cornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/gallery_button"
