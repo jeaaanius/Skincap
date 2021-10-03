@@ -16,7 +16,7 @@ import android.widget.*;
 
 import com.example.skincap.R;
 
-public class ForCheckSkin extends AppCompatActivity {
+public class ForCheckSkin extends AppCompatActivity   {
 
     Button camera_button;
     Button gallery_button;
@@ -25,11 +25,12 @@ public class ForCheckSkin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_check_skin);
 
         camera_button = findViewById(R.id.camera_button);
         view_image = findViewById(R.id.view_image);
         gallery_button = findViewById(R.id.gallery_button);
+
 
         //  For Camera Permissions
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
