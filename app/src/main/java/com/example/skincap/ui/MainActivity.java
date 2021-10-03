@@ -3,17 +3,27 @@ package com.example.skincap.ui;
 import static androidx.navigation.ui.NavigationUI.setupActionBarWithNavController;
 import static androidx.navigation.ui.NavigationUI.setupWithNavController;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -35,6 +45,19 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     private ActivityMainBinding binding;
     private NavController navController;
 
+    Button camera_button;
+    Button gallery_button;
+    ImageView view_image;
+
+    public void camera_button(View view) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent,1);
+    }
+
+    public void gallery_button(View view) {
+            openGallery(2);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +69,50 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
 
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
         navController.addOnDestinationChangedListener(this);
+
+        camera_button = findViewById(R.id.camera_button);
+        view_image = findViewById(R.id.view_image);
+        gallery_button = findViewById(R.id.gallery_button);
+
+
+        //  For Camera Permissions
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.CAMERA },1);
+        }
+
+    }
+
+    void openGallery(int requestCode) {
+        Intent i = new Intent();
+        i.setType("image/");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+
+        startActivityForResult(Intent.createChooser(i, "Select an Image"), requestCode);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            //  Camera
+            if (requestCode == 1) {
+                Bitmap captureImage = (Bitmap) data.getExtras().get("data");
+
+                view_image.setImageBitmap(captureImage);
+            }
+
+            //  Gallery
+            else if (requestCode == 2) {
+                Uri selected_image = data.getData();
+
+                if (null != selected_image){
+                    view_image.setImageURI(selected_image);
+                }
+            }
+        }
     }
 
     @Override
