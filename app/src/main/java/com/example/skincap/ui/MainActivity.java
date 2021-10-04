@@ -159,6 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
                 add(R.id.home_dashboard);
                 add(R.id.camera_gallery);
                 add(R.id.journal_list);
+                add(R.id.library_skin);
             }
         };
 
