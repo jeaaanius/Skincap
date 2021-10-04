@@ -5,15 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<<<<<<< Updated upstream
 
     <LinearLayout
         android:layout_width="355dp"
         android:layout_height="400dp"
+=======
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+>>>>>>> Stashed changes
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.648">
 
@@ -21,6 +28,14 @@
             android:id="@+id/slider_image"
             android:layout_width="294dp"
             android:layout_height="200dp"
+=======
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/slider_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+>>>>>>> Stashed changes
             app:srcCompat="@drawable/ic_welcome_onboarding" />
 
         <TextView
@@ -37,12 +52,21 @@
 
         <TextView
             android:id="@+id/slider_desc"
+<<<<<<< Updated upstream
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/fourth_slide_desc"
+=======
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/montserrat"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/first_slide_desc"
+>>>>>>> Stashed changes
             android:textColor="@color/light_brown"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@+id/slider_heading" />
