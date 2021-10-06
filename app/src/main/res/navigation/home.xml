@@ -15,6 +15,10 @@
             android:id="@+id/to_notifications"
             app:destination="@id/notificationFragment" />
 
+        <action
+            android:id="@+id/to_info"
+            app:destination="@id/infoFragment" />
+
     </fragment>
 
     <fragment
@@ -22,5 +26,11 @@
         android:name="com.example.skincap.ui.notifs.NotificationFragment"
         android:label="Notifications"
         tools:layout="@layout/fragment_notifications"/>
+
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.example.skincap.ui.info.InfoFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_info"/>
 
 </navigation>
