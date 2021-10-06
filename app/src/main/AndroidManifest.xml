@@ -25,6 +25,7 @@
         <activity android:name=".ui.OnBoarding" />
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.peripherals.ForCheckSkin"/>
+        <activity android:name=".ui.journal.CreateJournal" />
     </application>
 
 </manifest>
