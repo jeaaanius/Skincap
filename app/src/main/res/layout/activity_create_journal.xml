@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:padding="20dp">
 
-
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
@@ -16,17 +15,18 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/save"
+            android:id="@+id/save_button"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/save_journal"
+            android:onClick="save_button"
             app:cornerRadius="20dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/cancel"
+            android:id="@+id/cancel_button"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
@@ -35,6 +35,7 @@
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/cancel_journal"
             android:textColor="@color/dark_brown"
+            android:onClick="cancel_button"
             app:cornerRadius="20dp"
             app:strokeColor="@color/dark_brown"
             app:strokeWidth="1dp" />
