@@ -9,6 +9,6 @@
         android:id="@+id/journal_list"
         android:name="com.example.skincap.ui.journal.JournalFragment"
         android:label="Journal"
-        tools:layout="@layout/fragment_journal"/>
+        tools:layout="@layout/fragment_journal" />
 
 </navigation>
