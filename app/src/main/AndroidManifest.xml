@@ -3,6 +3,7 @@
     package="com.example.skincap">
 
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +25,7 @@
         <activity android:name=".ui.OnBoarding" />
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.peripherals.ForCheckSkin"/>
-        <activity android:name=".ui.journal.CreateJournal"/>
+        <activity android:name=".ui.journal.CreateJournal" />
     </application>
 
 </manifest>

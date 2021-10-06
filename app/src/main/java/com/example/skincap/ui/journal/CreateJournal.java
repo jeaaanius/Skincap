@@ -2,6 +2,8 @@ package com.example.skincap.ui.journal;
 
 import android.os.Bundle;
 
+import android.view.View;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,4 +16,13 @@ public class CreateJournal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_journal);
     }
+
+    public void cancel_button(View view) {
+        this.finish();
+    }
+
+    public void save_button(View view) {
+
+    }
+
 }

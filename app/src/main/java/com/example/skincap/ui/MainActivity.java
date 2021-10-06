@@ -7,7 +7,9 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -56,12 +58,21 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     }
 
     public void camera_button(View view) {
+        //  For Starting Camera
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent,1);
     }
 
     public void gallery_button(View view) {
-            openGallery(2);
+        //  For Opening Gallery
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, 2);
+    }
+
+    public void floating_button(View view) {
+        //  For Creating New Journal
+        Intent intent = new Intent(getApplicationContext(), CreateJournal.class);
+        startActivity(intent);
     }
 
     @Override
@@ -83,19 +94,11 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
 
         //  For Camera Permissions
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{
-                    Manifest.permission.CAMERA },1);
+            != PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.CAMERA
+                },1);
         }
-
-    }
-
-    void openGallery(int requestCode) {
-        Intent i = new Intent();
-        i.setType("image/");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-
-        startActivityForResult(Intent.createChooser(i, "Select an Image"), requestCode);
     }
 
     @Override
@@ -106,17 +109,24 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
             //  Camera
             if (requestCode == 1) {
                 Bitmap captureImage = (Bitmap) data.getExtras().get("data");
-
                 view_image.setImageBitmap(captureImage);
             }
 
             //  Gallery
             else if (requestCode == 2) {
                 Uri selected_image = data.getData();
+                String[] filePath = { MediaStore.Images.Media.DATA };
 
-                if (null != selected_image){
-                    view_image.setImageURI(selected_image);
-                }
+                Cursor cursor = getContentResolver().query(selected_image, filePath, null, null, null);
+                    cursor.moveToFirst();
+
+                    int columnIndex = cursor.getColumnIndex(filePath[0]);
+                    String picturePath = cursor.getString(columnIndex);
+                cursor.close();
+
+                Bitmap image_selected = (BitmapFactory.decodeFile(picturePath));
+                Log.w("Image Path:", picturePath + "");
+                view_image.setImageBitmap(image_selected);
             }
         }
     }
