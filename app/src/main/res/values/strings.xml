@@ -6,16 +6,12 @@
     <string name="check_skin">Check Skin</string>
     <string name="journal">Journal</string>
     <string name="library">Library</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Fragments -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="gallery">Gallery</string>
-    <string name="camera">Camera</string>
     <string name="start_your_skin_care_journey">Start your Skin Care Journey</string>
     <string name="discover_your_skin">Discover your skin for your\nskin care journey</string>
-    <string name="check_your_skin">Check your Skin</string>
     <string name="no_new_notifications">No new notifications</string>
     <string name="no_library">You have nothing to view\ncheck your skin now</string>
-
     <!--OnBoarding Screen -->
     <string name="first_slide_title">Welcome to SkinCap!</string>
     <string name="second_slide_title">Snap, Analyze, Manage</string>
@@ -27,7 +23,35 @@
     <string name="third_slide_desc">Easily compare photos while making\nentries to track your progress</string>
     <string name="fourth_slide_desc">Get personalized recommendations\nbased on your skin type and skin care\ningredients</string>
     <!--Buttons-->
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
     <string name="get_started">GET STARTED</string>
     <string name="save_journal">SAVE</string>
     <string name="cancel_journal">CANCEL</string>
+    <string name="check_your_skin">Check your Skin</string>
+    <!--Create Journal -->
+    <string name="skin_issue">Skin Issue:</string>
+    <string name="skin_issue_name">ACNE</string>
+    <string name="include_photo">Include Photo</string>
+    <string name="start_date">Start Date</string>
+    <string name="expect_date">Expected Due</string>
+    <string name="select_time">Select time</string>
+    <string name="notes">NOTES</string>
+    <string name="insert_notes">Insert notes</string>
+    <!-- Settings -->
+    <string name="prediction_accuracy">Show prediction accuracy</string>
+    <string name="top_three">Show top 3 prediction</string>
+    <!-- Info -->
+    <string name="skin_cap_desc">SkinCap is a system for the researcher’s...\nLorem ipsum dolor sit amet, consectetur
+        \nadipiscing elit. Non adipiscing neque \nvarius augue in odio viverra fringilla.
+        Vitae \ndis et morbi sodales faucibus eget orci. </string>
+    <string name="dev_1_name">Erika Paula S. Lim</string>
+    <string name="dev_2_name">Jean Darren F. Limbo</string>
+    <string name="dev_3_name">Emmanuel M. Peradilla</string>
+    <string name="dev_4_name">Pauline Dominique R. Andoloy</string>
+    <string name="dev_1_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
+    <string name="dev_2_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
+    <string name="dev_3_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
+    <string name="dev_4_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
+    <string name="feu_tech">FEU TECH</string>
 </resources>
