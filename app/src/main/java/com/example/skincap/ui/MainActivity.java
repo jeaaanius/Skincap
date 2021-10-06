@@ -34,6 +34,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.skincap.R;
 import com.example.skincap.databinding.ActivityMainBinding;
+import com.example.skincap.ui.journal.CreateJournal;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -61,6 +62,12 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
         //  For Opening Gallery
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 2);
+    }
+
+    public void floating_button(View view) {
+        //  For Creating New Journal
+        Intent intent = new Intent(getApplicationContext(), CreateJournal.class);
+        startActivity(intent);
     }
 
     @Override
