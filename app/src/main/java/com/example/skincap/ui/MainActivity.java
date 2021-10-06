@@ -32,6 +32,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import com.example.skincap.R;
 import com.example.skincap.databinding.ActivityMainBinding;
+import com.example.skincap.ui.journal.CreateJournal;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -48,6 +49,11 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     Button camera_button;
     Button gallery_button;
     ImageView view_image;
+
+    public void floating_button(View view) {
+        startActivity(new Intent(this, CreateJournal.class));
+        finish();
+    }
 
     public void camera_button(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -196,10 +202,13 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
         switch (item.getItemId()) {
             case R.id.notifs:
                 navigateToFragment(R.id.to_notifications);
+                return true;
             case R.id.info:
-                // todo add menu destinations
+                navigateToFragment(R.id.to_info);
+                return true;
             case R.id.settings:
-                // todo add menu destinations
+                navigateToFragment(R.id.to_settings);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
