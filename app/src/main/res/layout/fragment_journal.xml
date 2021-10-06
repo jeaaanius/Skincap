@@ -55,7 +55,6 @@
         android:src="@drawable/ic_pencil"
         android:onClick="floating_button"
         app:backgroundTint="@color/white"
-        android:onClick="floating_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:useCompatPadding="true"

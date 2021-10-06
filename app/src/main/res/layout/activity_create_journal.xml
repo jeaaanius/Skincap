@@ -244,6 +244,7 @@
                 android:layout_alignParentTop="true"
                 android:backgroundTint="@color/white"
                 android:fontFamily="@font/montserrat_bold"
+                android:onClick="cancel_button"
                 android:text="@string/cancel_journal"
                 android:textColor="@color/dark_brown"
                 app:cornerRadius="20dp"

@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
 
     public void floating_button(View view) {
         startActivity(new Intent(this, CreateJournal.class));
-        finish();
     }
 
     public void camera_button(View view) {
@@ -67,12 +66,6 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
         //  For Opening Gallery
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 2);
-    }
-
-    public void floating_button(View view) {
-        //  For Creating New Journal
-        Intent intent = new Intent(getApplicationContext(), CreateJournal.class);
-        startActivity(intent);
     }
 
     @Override
