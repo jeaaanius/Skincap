@@ -1,43 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="20dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fillViewport="true">
 
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/skin_issue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
+            android:text="@string/skin_issue"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/skin_issue_name"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/skin_issue_name"
+            android:inputType="textPersonName"
+            android:paddingLeft="30dp"
+            android:paddingTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/skin_issue"
+            tools:ignore="MissingConstraints"
+            android:importantForAutofill="no" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/save"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/include_photo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="@string/save_journal"
-            app:cornerRadius="20dp" />
+            android:text="@string/include_photo"
+            android:padding="15dp"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/ic_include_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/skin_issue_name" />
+
+        <ImageView
+            android:id="@+id/start_date_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toBottomOf="@+id/include_photo_button"
+            app:srcCompat="@drawable/ic_start_date"
+            tools:ignore="MissingConstraints"
+            android:contentDescription="@string/start_date" />
+
+        <TextView
+            android:id="@+id/start_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="38dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/start_date"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/start_date_calendar"
+            app:layout_constraintTop_toBottomOf="@+id/include_photo_button" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/cancel"
+            android:id="@+id/start_date_button"
+            style="?android:spinnerStyle"
             android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="@string/cancel_journal"
-            android:textColor="@color/dark_brown"
-            app:cornerRadius="20dp"
-            app:strokeColor="@color/dark_brown"
-            app:strokeWidth="1dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat"
+            android:hint="JAN 01 2021"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.196"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/start_date" />
 
-    </RelativeLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/exp_date_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toBottomOf="@+id/start_date_button"
+            app:srcCompat="@drawable/ic_expected_due"
+            tools:ignore="MissingConstraints"
+            android:contentDescription="@string/expect_date" />
+
+        <TextView
+            android:id="@+id/expected_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/expect_date"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/exp_date_calendar"
+            app:layout_constraintTop_toBottomOf="@+id/start_date_button"
+            tools:layout_editor_absoluteX="42dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/expect_date_button"
+            style="?android:spinnerStyle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat"
+            android:hint="JAN 01 2021"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.196"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/expected_date" />
+
+        <View
+            android:id="@+id/horizontal_line"
+            android:layout_width="wrap_content"
+            android:layout_height="1.5dp"
+            android:layout_marginTop="12dp"
+            android:background="#c0c0c0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/expect_date_button" />
+
+        <ImageView
+            android:id="@+id/time_notif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/ic_time_notif"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_line"
+            tools:ignore="MissingConstraints"
+            android:contentDescription="@string/select_time" />
+
+        <TextView
+            android:id="@+id/select_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/select_time"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/time_notif"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_line" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/time_notif_button"
+            style="?android:spinnerStyle"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat"
+            android:hint="12:00"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.196"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/select_time" />
+        <View
+            android:id="@+id/horizontal_line_2"
+            android:layout_width="wrap_content"
+            android:layout_height="1.5dp"
+            android:layout_marginTop="12dp"
+            android:background="#c0c0c0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/time_notif_button" />
+
+        <ImageView
+            android:id="@+id/notes_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            app:srcCompat="@drawable/ic_notes"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_line_2"
+            tools:ignore="MissingConstraints"
+            android:contentDescription="@string/notes" />
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/notes"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/start_date_calendar"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_line_2" />
+
+        <EditText
+            android:id="@+id/notes_name"
+            android:layout_width="347dp"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:fontFamily="@font/montserrat"
+            android:paddingLeft="30dp"
+            android:paddingTop="30dp"
+            android:textStyle="italic"
+            android:hint="@string/insert_notes"
+            android:inputType="textMultiLine"
+            app:layout_constraintTop_toBottomOf="@+id/notes"
+            tools:ignore="MissingConstraints"
+            android:importantForAutofill="no" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/notes_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/save"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/save_journal"
+                app:cornerRadius="20dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancel"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/cancel_journal"
+                android:textColor="@color/dark_brown"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/dark_brown"
+                app:strokeWidth="1dp" />
+
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
