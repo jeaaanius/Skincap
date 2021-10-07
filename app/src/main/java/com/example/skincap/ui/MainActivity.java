@@ -192,11 +192,27 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
                 return;
             }
             for (int i = 0; i < MENU_ITEMS.length; i++) {
-                binding.toolbar.getMenu()
-                        .findItem(MENU_ITEMS[i])
+                getMenuItem(i)
                         .setVisible((i == 0) != (destinationId == START_DESTINATION_ID));
+
+                // Check the navigation destination explicitly by using its ID. If either the
+                // current destination is a library or the journal bottom navigation fragment.
+                // We have to hide all the menu items in every iteration.
+                if (isJournalOrLibraryNav(destinationId)) {
+                    getMenuItem(i).setVisible(false);
+                }
             }
         });
+    }
+
+    private static boolean isJournalOrLibraryNav(@IdRes final int destinationId) {
+        // Check if the destination ID is Journal or Library start destination.
+        // @see res -> navigation folder.
+        return destinationId == R.id.journal_list || destinationId == R.id.library_skin;
+    }
+
+    private MenuItem getMenuItem(final int index) {
+        return binding.toolbar.getMenu().findItem(MENU_ITEMS[index]);
     }
 
     @SuppressLint("NonConstantResourceId")
