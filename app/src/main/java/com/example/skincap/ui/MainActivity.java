@@ -31,12 +31,18 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skincap.R;
 import com.example.skincap.databinding.ActivityMainBinding;
 import com.example.skincap.ui.journal.CreateJournal;
+import com.example.skincap.ui.library.Library;
+import com.example.skincap.ui.library.LibraryAdapter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements NavController.OnDestinationChangedListener {
@@ -47,6 +53,10 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     private MainActivityViewModel viewModel;
     private ActivityMainBinding binding;
     private NavController navController;
+
+    RecyclerView recyclerView;
+
+    List<Library> skinIssueList;
 
     Button camera_button;
     Button gallery_button;
@@ -83,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
         camera_button = findViewById(R.id.camera_button);
         view_image = findViewById(R.id.view_image);
         gallery_button = findViewById(R.id.gallery_button);
+        recyclerView = findViewById(R.id.recyclerView);
 
 
         //  For Camera Permissions
@@ -92,6 +103,9 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
                     Manifest.permission.CAMERA
                 },1);
         }
+
+        initData();
+        initRecyclerView();
     }
 
     @Override
@@ -122,6 +136,24 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
                 view_image.setImageBitmap(image_selected);
             }
         }
+    }
+
+    private void initRecyclerView() {
+        LibraryAdapter libraryAdapter = new LibraryAdapter(skinIssueList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(libraryAdapter);
+    }
+
+    private void initData() {
+        skinIssueList = new ArrayList<>();
+        skinIssueList.add(new Library("Acne Papule", "", "", ""));
+        skinIssueList.add(new Library("Sunspots", "", "", ""));
+        skinIssueList.add(new Library("Whiteheads", "", "", ""));
+        skinIssueList.add(new Library("Blackheads", "", "", ""));
+        skinIssueList.add(new Library("Fungal Acne", "", "", ""));
+        skinIssueList.add(new Library("Folliculitis", "", "", ""));
+        skinIssueList.add(new Library("Perioral Dermatitis","","",""));
+        skinIssueList.add(new Library("Milia","","",""));
     }
 
     @Override
@@ -213,7 +245,9 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
 
     private MenuItem getMenuItem(final int index) {
         return binding.toolbar.getMenu().findItem(MENU_ITEMS[index]);
+
     }
+
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -231,6 +265,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
             default:
                 return super.onOptionsItemSelected(item);
         }
+
     }
 
     private void navigateToFragment(@IdRes int resId) {
