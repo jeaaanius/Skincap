@@ -230,6 +230,7 @@
                 android:id="@+id/save"
                 android:layout_width="150dp"
                 android:layout_height="60dp"
+                android:onClick="save_button"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:fontFamily="@font/montserrat_bold"
