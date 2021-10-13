@@ -54,28 +54,8 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     private ActivityMainBinding binding;
     private NavController navController;
 
-    RecyclerView recyclerView;
-
-    List<Library> skinIssueList;
-
-    Button camera_button;
-    Button gallery_button;
-    ImageView view_image;
-
     public void floating_button(View view) {
         startActivity(new Intent(this, CreateJournal.class));
-    }
-
-    public void camera_button(View view) {
-        //  For Starting Camera
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,1);
-    }
-
-    public void gallery_button(View view) {
-        //  For Opening Gallery
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, 2);
     }
 
     @Override
@@ -90,12 +70,6 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
         navController.addOnDestinationChangedListener(this);
 
-        camera_button = findViewById(R.id.camera_button);
-        view_image = findViewById(R.id.view_image);
-        gallery_button = findViewById(R.id.gallery_button);
-        recyclerView = findViewById(R.id.recyclerView);
-
-
         //  For Camera Permissions
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             != PackageManager.PERMISSION_GRANTED){
@@ -103,57 +77,6 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
                     Manifest.permission.CAMERA
                 },1);
         }
-
-        initData();
-        initRecyclerView();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (resultCode == RESULT_OK) {
-            //  Camera
-            if (requestCode == 1) {
-                Bitmap captureImage = (Bitmap) data.getExtras().get("data");
-                view_image.setImageBitmap(captureImage);
-            }
-
-            //  Gallery
-            else if (requestCode == 2) {
-                Uri selected_image = data.getData();
-                String[] filePath = { MediaStore.Images.Media.DATA };
-
-                Cursor cursor = getContentResolver().query(selected_image, filePath, null, null, null);
-                    cursor.moveToFirst();
-
-                    int columnIndex = cursor.getColumnIndex(filePath[0]);
-                    String picturePath = cursor.getString(columnIndex);
-                cursor.close();
-
-                Bitmap image_selected = (BitmapFactory.decodeFile(picturePath));
-                Log.w("Image Path:", picturePath + "");
-                view_image.setImageBitmap(image_selected);
-            }
-        }
-    }
-
-    private void initRecyclerView() {
-        LibraryAdapter libraryAdapter = new LibraryAdapter(skinIssueList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(libraryAdapter);
-    }
-
-    private void initData() {
-        skinIssueList = new ArrayList<>();
-        skinIssueList.add(new Library("Acne Papule", "", "", ""));
-        skinIssueList.add(new Library("Sunspots", "", "", ""));
-        skinIssueList.add(new Library("Whiteheads", "", "", ""));
-        skinIssueList.add(new Library("Blackheads", "", "", ""));
-        skinIssueList.add(new Library("Fungal Acne", "", "", ""));
-        skinIssueList.add(new Library("Folliculitis", "", "", ""));
-        skinIssueList.add(new Library("Perioral Dermatitis","","",""));
-        skinIssueList.add(new Library("Milia","","",""));
     }
 
     @Override
