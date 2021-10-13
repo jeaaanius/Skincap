@@ -54,4 +54,8 @@
     <string name="dev_3_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
     <string name="dev_4_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
     <string name="feu_tech">FEU TECH</string>
+    <!-- Library -->
+    <string name="definition">Definition:</string>
+    <string name="causes">Causes:</string>
+    <string name="skin_ingred">Suggested Skin Care Ingredient:</string>
 </resources>
