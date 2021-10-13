@@ -28,7 +28,7 @@ public class ForCheckSkin extends AppCompatActivity   {
         setContentView(R.layout.fragment_check_skin);
 
         camera_button = findViewById(R.id.camera_button);
-        view_image = findViewById(R.id.view_image);
+        view_image = findViewById(R.id.check_skin_image);
         gallery_button = findViewById(R.id.gallery_button);
 
 
