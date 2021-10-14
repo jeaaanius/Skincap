@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/check_skin_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="256dp"
+        android:layout_height="182dp"
         android:src="@drawable/ic_check_skin_snap" />
 
     <TextView
