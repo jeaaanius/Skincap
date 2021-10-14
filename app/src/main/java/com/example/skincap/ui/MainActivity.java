@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     private static boolean isJournalOrLibraryNav(@IdRes final int destinationId) {
         // Check if the destination ID is Journal or Library start destination.
         // @see res -> navigation folder.
-        return destinationId == R.id.journal_list || destinationId == R.id.library_skin;
+        return destinationId == R.id.journal_list || destinationId == R.id.library_skin || destinationId == R.id.infoFragment || destinationId == R.id.notificationFragment || destinationId == R.id.settingsFragment;
     }
 
     private MenuItem getMenuItem(final int index) {
