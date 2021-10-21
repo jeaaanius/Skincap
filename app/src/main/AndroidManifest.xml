@@ -3,9 +3,10 @@
     package="com.example.skincap">
 
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".SkinCapApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon_skincap"
         android:label="@string/app_name"
@@ -24,7 +25,7 @@
         </activity>
         <activity android:name=".ui.OnBoarding" />
         <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ui.journal.CreateJournal" />
+        <activity android:name=".ui.journal.CreateJournalActivity" />
     </application>
 
 </manifest>

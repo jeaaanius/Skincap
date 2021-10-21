@@ -5,20 +5,11 @@ import static androidx.navigation.ui.NavigationUI.setupWithNavController;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
@@ -31,18 +22,11 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.skincap.R;
 import com.example.skincap.databinding.ActivityMainBinding;
-import com.example.skincap.ui.journal.CreateJournal;
-import com.example.skincap.ui.library.Library;
-import com.example.skincap.ui.library.LibraryAdapter;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements NavController.OnDestinationChangedListener {
@@ -53,10 +37,6 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     private MainActivityViewModel viewModel;
     private ActivityMainBinding binding;
     private NavController navController;
-
-    public void floating_button(View view) {
-        startActivity(new Intent(this, CreateJournal.class));
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +52,10 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
 
         //  For Camera Permissions
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-            != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions(this, new String[]{
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{
                     Manifest.permission.CAMERA
-                },1);
+            }, 1);
         }
     }
 
@@ -163,7 +143,9 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     private static boolean isJournalOrLibraryNav(@IdRes final int destinationId) {
         // Check if the destination ID is Journal or Library start destination.
         // @see res -> navigation folder.
-        return destinationId == R.id.journal_list || destinationId == R.id.library_skin || destinationId == R.id.infoFragment || destinationId == R.id.notificationFragment || destinationId == R.id.settingsFragment;
+        return destinationId == R.id.journal_list || destinationId == R.id.library_skin
+                || destinationId == R.id.infoFragment || destinationId == R.id.notificationFragment
+                || destinationId == R.id.settingsFragment;
     }
 
     private MenuItem getMenuItem(final int index) {
