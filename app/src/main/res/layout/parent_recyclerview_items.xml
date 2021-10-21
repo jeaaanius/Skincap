@@ -13,7 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:textColor="#C4DFEF"
+        android:fontFamily="@font/montserrat_alternates_bold"
+        android:textColor="@color/dark_brown"
         android:textStyle="bold"
         tools:text="Skin Issues" />
 

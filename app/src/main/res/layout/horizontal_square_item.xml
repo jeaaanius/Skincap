@@ -24,6 +24,7 @@
     <TextView
         android:id="@+id/skin_name"
         style="@style/TextAppearance.AppCompat.Body2"
+        android:fontFamily="@font/montserrat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="Acne Papule"/>
