@@ -29,6 +29,10 @@
     <string name="save_journal">SAVE</string>
     <string name="cancel_journal">CANCEL</string>
     <string name="check_your_skin">Check your Skin</string>
+    <!-- Home -->
+    <string name="list_skin_type">Skin Types</string>
+    <string name="list_skin_issues">Skin Issues</string>
+    <string name="list_skin_ingredients">Skin Ingredients</string>
     <!--Create Journal -->
     <string name="skin_issue">Skin Issue:</string>
     <string name="skin_issue_name">ACNE</string>
@@ -55,7 +59,7 @@
     <string name="dev_4_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
     <string name="feu_tech">FEU TECH</string>
     <!-- Library -->
-    <string name="definition">Definition:</string>
-    <string name="causes">Causes:</string>
-    <string name="skin_ingred">Suggested Skin Care Ingredient:</string>
+    <string name="definition">DEFINITION:</string>
+    <string name="causes">CAUSES:</string>
+    <string name="skin_ingred">SUGGESTED SKIN CARE INGREDIENTS:</string>
 </resources>

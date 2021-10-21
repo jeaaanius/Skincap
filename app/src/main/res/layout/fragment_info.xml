@@ -16,14 +16,16 @@
             android:id="@+id/skin_cap_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_skincap_logo" />
+            app:srcCompat="@mipmap/icon_skincap" />
 
         <TextView
             android:id="@+id/skin_cap_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
-            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:padding="5dp"
+            android:textStyle="italic"
             android:textSize="13sp"
             android:text="@string/skin_cap_desc"
             android:textColor="@color/black"
