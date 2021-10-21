@@ -14,22 +14,6 @@ public class LibraryDataSource {
             add(new Library("Folliculitis", "", "", ""));
             add(new Library("Perioral Dermatitis","","",""));
             add(new Library("Milia","","",""));
-            add(new Library("Fungal Acne", "", "", ""));
-            add(new Library("Folliculitis", "", "", ""));
-            add(new Library("Perioral Dermatitis","","",""));
-            add(new Library("Milia","","",""));
-            add(new Library("Fungal Acne", "", "", ""));
-            add(new Library("Folliculitis", "", "", ""));
-            add(new Library("Perioral Dermatitis","","",""));
-            add(new Library("Milia","","",""));
-            add(new Library("Fungal Acne", "", "", ""));
-            add(new Library("Folliculitis", "", "", ""));
-            add(new Library("Perioral Dermatitis","","",""));
-            add(new Library("Milia","","",""));
-            add(new Library("Fungal Acne", "", "", ""));
-            add(new Library("Folliculitis", "", "", ""));
-            add(new Library("Perioral Dermatitis","","",""));
-            add(new Library("Milia","","",""));
         }
     };
 

@@ -23,7 +23,7 @@ public class LibraryFragment extends BaseFragment<FragmentLibraryBinding> {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = FragmentLibraryBinding.bind(view);
+        @NonNull FragmentLibraryBinding binding = FragmentLibraryBinding.bind(view);
 
         final LibraryAdapter adapter = new LibraryAdapter();
         binding.recyclerView.setAdapter(adapter);
