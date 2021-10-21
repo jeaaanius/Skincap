@@ -10,12 +10,14 @@
     tools:context=".ui.home.HomeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Parent_recyclerView"
+        android:id="@+id/parent_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="4dp"
+        tools:listitem="@layout/horizontal_rectangle_item"
         android:scrollbars="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

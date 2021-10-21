@@ -1,23 +1,24 @@
 package com.example.skincap.ui.home;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
 
 import com.example.skincap.R;
 
-public class ChildRecyclerViewAdapter extends RecyclerView.Adapter<ChildRecyclerViewAdapter.MyViewHolder> {
-    public ArrayList<ChildModel> childModelArrayList;
-    Context cxt;
+import java.util.List;
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.MyViewHolder> {
+
+    public List<ChildModel> childModelArrayList;
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView skinImage;
         public TextView skinName;
 
@@ -25,18 +26,21 @@ public class ChildRecyclerViewAdapter extends RecyclerView.Adapter<ChildRecycler
             super(itemView);
             skinImage = itemView.findViewById(R.id.skin_image);
             skinName = itemView.findViewById(R.id.skin_name);
-
         }
     }
 
-    public ChildRecyclerViewAdapter(ArrayList<ChildModel> arrayList, Context mContext) {
-        this.cxt = mContext;
+    @LayoutRes
+    private final int layoutId;
+
+    public HorizontalAdapter(List<ChildModel> arrayList, @LayoutRes int layoutId) {
         this.childModelArrayList = arrayList;
+        this.layoutId = layoutId;
     }
 
+    @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.child_recyclerview_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -47,6 +51,7 @@ public class ChildRecyclerViewAdapter extends RecyclerView.Adapter<ChildRecycler
         holder.skinName.setText(currentItem.getSkinName());
 
     }
+
     @Override
     public int getItemCount() {
         return childModelArrayList.size();
