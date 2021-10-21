@@ -29,6 +29,10 @@
     <string name="save_journal">SAVE</string>
     <string name="cancel_journal">CANCEL</string>
     <string name="check_your_skin">Check your Skin</string>
+    <!-- Home -->
+    <string name="list_skin_type">Skin Types</string>
+    <string name="list_skin_issues">Skin Issues</string>
+    <string name="list_skin_ingredients">Skin Ingredients</string>
     <!--Create Journal -->
     <string name="skin_issue">Skin Issue:</string>
     <string name="skin_issue_name">ACNE</string>

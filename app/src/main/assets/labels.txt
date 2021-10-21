@@ -1,9 +1,9 @@
-0 Acne Papule
-1 Blackheads
-2 Folliculitis
-3 Fungal Acne
-4 Milia
-5 Normal
-6 Perioral Der...
-7 Sun Spots
-8 Whiteheads
+Acne Papule
+Blackheads
+Folliculitis
+Fungal Acne
+Milia
+Normal
+Perioral Dermatitis
+Sun Spots
+Whiteheads
