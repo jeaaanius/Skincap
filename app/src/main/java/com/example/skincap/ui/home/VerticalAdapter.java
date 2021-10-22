@@ -100,10 +100,9 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.MyView
     private List<ChildModel> getSkinTypesItems() {
         return new ArrayList<ChildModel>() {
             {
-                add(new ChildModel(R.drawable.skin_type, "Oily"));
-                add(new ChildModel(R.drawable.skin_type, "Dry"));
-                add(new ChildModel(R.drawable.skin_type, "Balanced"));
-                add(new ChildModel(R.drawable.skin_type, "Normal"));
+                add(new ChildModel(R.drawable.n_oily, "Oily"));
+                add(new ChildModel(R.drawable.n_dry, "Dry"));
+                add(new ChildModel(R.drawable.n_normal, "Balanced"));
             }
         };
     }
@@ -111,14 +110,13 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.MyView
     private List<ChildModel> getSkinIssues() {
         return new ArrayList<ChildModel>() {
             {
-                add(new ChildModel(R.drawable.skin_type, "Acne Papule"));
-                add(new ChildModel(R.drawable.skin_type, "Sunspots"));
-                add(new ChildModel(R.drawable.skin_type, "Whiteheads"));
-                add(new ChildModel(R.drawable.skin_type, "Blackheads"));
-                add(new ChildModel(R.drawable.skin_type, "Fungal Acne"));
-                add(new ChildModel(R.drawable.skin_type, "Folliculitis"));
-                add(new ChildModel(R.drawable.skin_type, "Perioral Dermatitis"));
-                add(new ChildModel(R.drawable.skin_type, "Milia"));
+                add(new ChildModel(R.drawable.m_acne_papule, "Acne Papule"));
+                add(new ChildModel(R.drawable.m_sun_spot, "Sunspots"));
+                add(new ChildModel(R.drawable.m_whiteheads, "Whiteheads"));
+                add(new ChildModel(R.drawable.m_blackheads, "Blackheads"));
+                add(new ChildModel(R.drawable.m_fungal_acne, "Fungal Acne"));
+                add(new ChildModel(R.drawable.m_perioral_dermatitis, "Perioral Dermatitis"));
+                add(new ChildModel(R.drawable.m_milia, "Milia"));
             }
         };
     }
