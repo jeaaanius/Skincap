@@ -6,21 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/result_tv2"
-        android:layout_width="wrap_content"
-        android:layout_height="26dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:gravity="center"
-        android:text="Oily"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toEndOf="@+id/skin_analyzer_tv"
-        app:layout_constraintTop_toBottomOf="@+id/result_tv" />
-
-
 
     <ImageView
         android:id="@+id/iv_capture"
@@ -62,26 +47,78 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_capture" />
 
     <TextView
-        android:id="@+id/skin_analyzer_tv"
-        android:layout_width="0dp"
+        android:id="@+id/confidence_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Confidentiality"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv" />
+
+    <TextView
+        android:id="@+id/condition_confidence_tv"
+        android:layout_width="wrap_content"
         android:layout_height="19dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/montserrat"
+        android:text="90%"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/confidence_tv"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv" />
+
+    <TextView
+        android:id="@+id/skin_analyzer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Skin Analyzer:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skin_condition_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/confidence_tv" />
 
-    <ListView
-        android:id="@+id/lv_probabilities"
+    <TextView
+        android:id="@+id/result_tv2"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="parent"
+        android:layout_height="23dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="Oily"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toEndOf="@+id/skin_analyzer_tv"
+        app:layout_constraintTop_toBottomOf="@+id/confidence_tv" />
+
+    <TextView
+        android:id="@+id/confidence2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Confidentiality"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_capture" />
+        app:layout_constraintTop_toBottomOf="@+id/result_tv2" />
+
+    <TextView
+        android:id="@+id/analyzer_confidence_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/montserrat"
+        android:text="90%"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/confidence2_tv"
+        app:layout_constraintTop_toBottomOf="@+id/result_tv2" />
 
     <ScrollView
         android:id="@+id/scrollView1"
@@ -91,18 +128,20 @@
         android:fillViewport="true"
         android:gravity="top"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skin_analyzer_tv">
+        app:layout_constraintTop_toBottomOf="@+id/confidence2_tv"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="0dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/bt_create_journal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/skin_analyzer_tv"
+            app:layout_constraintTop_toBottomOf="@+id/confidence2_tv"
             app:layout_constraintVertical_bias="0.0">
 
             <TextView
@@ -111,7 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="25dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/definition"
                 app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +242,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ingred_desc"
                 tools:ignore="TextContrastCheck" />
-
+            
+            <!--    ArrayList of the algorithm will be contained here-->
+            <ListView
+                android:id="@+id/lv_probabilities"
+                android:layout_width="wrap_content"
+                android:layout_height="162dp"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 
