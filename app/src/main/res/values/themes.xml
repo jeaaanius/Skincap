@@ -7,6 +7,7 @@
         <item name="colorOnPrimary">@color/cream</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/brushed_teal</item>
+        <item name="windowNoTitle">true</item>
         <item name="colorSecondaryVariant">@color/siam</item>
         <item name="colorOnSecondary">@color/light_brown</item>
         <!-- Status bar color. -->
