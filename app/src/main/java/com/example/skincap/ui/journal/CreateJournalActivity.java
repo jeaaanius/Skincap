@@ -9,10 +9,13 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.skincap.databinding.ActivityCreateJournalBinding;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
+import java.security.cert.CertPathBuilder;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -21,6 +24,7 @@ public class CreateJournalActivity extends AppCompatActivity {
     private ActivityCreateJournalBinding binding;
 
     private CreateJournalViewModel viewModel;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,12 +42,18 @@ public class CreateJournalActivity extends AppCompatActivity {
         binding.startDateButton.setOnClickListener(this::setSelectedDate);
         binding.expectDateButton.setOnClickListener(this::setSelectedDate);
         binding.timeNotifButton.setOnClickListener(this::setSelectedTime);
-        binding.save.setOnClickListener(e -> finish());
+        binding.cancel.setOnClickListener(e -> finish());
     }
 
     private void setSelectedDate(View button) {
+
+        // Makes only dates from today forward selectable.
+        CalendarConstraints.Builder constraintsBuilder = new CalendarConstraints.Builder();
+        constraintsBuilder.setValidator(DateValidatorPointForward.now());
+
         MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
                 .setTitleText("Select date")
+                .setCalendarConstraints(constraintsBuilder.build())
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                 .build();
 
@@ -51,7 +61,7 @@ public class CreateJournalActivity extends AppCompatActivity {
         datePicker.addOnPositiveButtonClickListener(selection -> {
             Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
             calendar.setTimeInMillis(selection);
-            ((MaterialButton) button).setText(String.valueOf(calendar.getTimeInMillis()));
+            ((MaterialButton) button).setText(datePicker.getHeaderText());
         });
     }
 
@@ -59,9 +69,15 @@ public class CreateJournalActivity extends AppCompatActivity {
         MaterialTimePicker timePicker = new MaterialTimePicker.Builder()
                 .setTitleText("Select Time")
                 .setTimeFormat(TimeFormat.CLOCK_12H)
+                .setHour(12)
+                .setMinute(0)
                 .build();
 
         timePicker.show(getSupportFragmentManager(), "TimePicker");
+        timePicker.addOnPositiveButtonClickListener(selection -> {
+            //((MaterialButton) button).setText(String.format("%02d", hour), String.format("%02d", minute));
+        });
+
     }
 
     @Override

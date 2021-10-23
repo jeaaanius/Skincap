@@ -44,7 +44,7 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/include_photo"
-            android:padding="15dp"
+            android:padding="10dp"
             app:cornerRadius="10dp"
             app:icon="@drawable/ic_include_photo"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,12 +75,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/start_date_button"
-            style="?android:spinnerStyle"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat"
             android:hint="JAN 01 2021"
+            app:backgroundTint="@color/white"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.196"
@@ -112,12 +112,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/expect_date_button"
-            style="?android:spinnerStyle"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat"
             android:hint="JAN 01 2021"
+            app:backgroundTint="@color/white"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.196"
@@ -158,17 +158,18 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/time_notif_button"
-            style="?android:spinnerStyle"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat"
             android:hint="12:00"
+            app:backgroundTint="@color/white"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/select_time" />
+
         <View
             android:id="@+id/horizontal_line_2"
             android:layout_width="wrap_content"
@@ -209,8 +210,8 @@
             android:fontFamily="@font/montserrat"
             android:paddingLeft="30dp"
             android:paddingTop="30dp"
-            android:textStyle="italic"
             android:hint="@string/insert_notes"
+            android:background="@null"
             android:inputType="textMultiLine"
             app:layout_constraintTop_toBottomOf="@+id/notes"
             tools:ignore="MissingConstraints"
