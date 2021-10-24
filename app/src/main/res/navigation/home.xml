@@ -12,20 +12,10 @@
         tools:layout="@layout/fragment_home" >
 
         <action
-            android:id="@+id/to_notifications"
-            app:destination="@id/notificationFragment" />
-
-        <action
             android:id="@+id/to_info"
             app:destination="@id/infoFragment" />
 
     </fragment>
-
-    <fragment
-        android:id="@+id/notificationFragment"
-        android:name="com.example.skincap.ui.notifs.NotificationFragment"
-        android:label="Notifications"
-        tools:layout="@layout/fragment_notifications"/>
 
     <fragment
         android:id="@+id/infoFragment"
