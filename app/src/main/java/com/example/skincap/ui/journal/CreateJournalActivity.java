@@ -1,9 +1,16 @@
 package com.example.skincap.ui.journal;
 
+import android.annotation.SuppressLint;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -15,16 +22,14 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
-import java.security.cert.CertPathBuilder;
-import java.util.Calendar;
-import java.util.TimeZone;
+import java.text.ParseException;
+import java.util.Locale;
 
 public class CreateJournalActivity extends AppCompatActivity {
 
     private ActivityCreateJournalBinding binding;
 
     private CreateJournalViewModel viewModel;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,17 +40,41 @@ public class CreateJournalActivity extends AppCompatActivity {
         binding = ActivityCreateJournalBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        setInputListeners();
         setListeners();
     }
 
     private void setListeners() {
-        binding.startDateButton.setOnClickListener(this::setSelectedDate);
-        binding.expectDateButton.setOnClickListener(this::setSelectedDate);
+
+        binding.expectDateButton.setOnClickListener(button ->
+                setSelectedDate(button, selectedDate -> viewModel.setExpectedDueDate(selectedDate)));
+
+        binding.startDateButton.setOnClickListener(button ->
+                setSelectedDate(button, selectedDate -> viewModel.setStartDate(selectedDate)));
+
         binding.timeNotifButton.setOnClickListener(this::setSelectedTime);
+
         binding.cancel.setOnClickListener(e -> finish());
+        binding.save.setOnClickListener(e -> viewModel.addJournal());
     }
 
-    private void setSelectedDate(View button) {
+    private void setInputListeners() {
+        binding.skinIssueName.addTextChangedListener(new JournalTextWatcher() {
+            @Override
+            void onJournalTextChange(String text) {
+                viewModel.setSkinIssue(text);
+            }
+        });
+
+        binding.notesName.addTextChangedListener(new JournalTextWatcher() {
+            @Override
+            void onJournalTextChange(String text) {
+                viewModel.setNotes(text);
+            }
+        });
+    }
+
+    private void setSelectedDate(View button, Callable function) {
 
         // Makes only dates from today forward selectable.
         CalendarConstraints.Builder constraintsBuilder = new CalendarConstraints.Builder();
@@ -56,11 +85,9 @@ public class CreateJournalActivity extends AppCompatActivity {
                 .setCalendarConstraints(constraintsBuilder.build())
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                 .build();
-
         datePicker.show(getSupportFragmentManager(), "DatePicker");
         datePicker.addOnPositiveButtonClickListener(selection -> {
-            Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-            calendar.setTimeInMillis(selection);
+            function.callSelectedDate(datePicker.getHeaderText());
             ((MaterialButton) button).setText(datePicker.getHeaderText());
         });
     }
@@ -69,15 +96,38 @@ public class CreateJournalActivity extends AppCompatActivity {
         MaterialTimePicker timePicker = new MaterialTimePicker.Builder()
                 .setTitleText("Select Time")
                 .setTimeFormat(TimeFormat.CLOCK_12H)
-                .setHour(12)
-                .setMinute(0)
                 .build();
 
         timePicker.show(getSupportFragmentManager(), "TimePicker");
         timePicker.addOnPositiveButtonClickListener(selection -> {
-            //((MaterialButton) button).setText(String.format("%02d", hour), String.format("%02d", minute));
-        });
+            String formattedTime = timePicker.getHour() + ":" + timePicker.getMinute();
 
+            String formatted12Hrs = formatTo12Hrs(formattedTime);
+
+            viewModel.setSelectedTime(formatted12Hrs);
+
+            ((MaterialButton) button).setText(formatTo12Hrs(formattedTime));
+        });
+    }
+
+    private interface Callable {
+        void callSelectedDate(String selectedDate);
+    }
+
+    @SuppressLint("NewApi")
+    private String formatTo12Hrs(String time) {
+        try {
+            final SimpleDateFormat sdf = simpleDateFormat("H:mm");
+            return simpleDateFormat("hh:mm a").format(sdf.parse(time));
+        } catch (ParseException e) {
+            Log.e(null, e.getMessage());
+            return time;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private static SimpleDateFormat simpleDateFormat(String pattern) {
+        return new SimpleDateFormat(pattern, Locale.getDefault());
     }
 
     @Override

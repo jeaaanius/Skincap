@@ -100,9 +100,9 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.MyView
     private List<ChildModel> getSkinTypesItems() {
         return new ArrayList<ChildModel>() {
             {
-                add(new ChildModel(R.drawable.n_oily, "Oily"));
-                add(new ChildModel(R.drawable.n_dry, "Dry"));
-                add(new ChildModel(R.drawable.n_normal, "Balanced"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Oily"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Dry"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Balanced"));
             }
         };
     }
@@ -110,13 +110,13 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.MyView
     private List<ChildModel> getSkinIssues() {
         return new ArrayList<ChildModel>() {
             {
-                add(new ChildModel(R.drawable.m_acne_papule, "Acne Papule"));
-                add(new ChildModel(R.drawable.m_sun_spot, "Sunspots"));
-                add(new ChildModel(R.drawable.m_whiteheads, "Whiteheads"));
-                add(new ChildModel(R.drawable.m_blackheads, "Blackheads"));
-                add(new ChildModel(R.drawable.m_fungal_acne, "Fungal Acne"));
-                add(new ChildModel(R.drawable.m_perioral_dermatitis, "Perioral Dermatitis"));
-                add(new ChildModel(R.drawable.m_milia, "Milia"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Acne Papule"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Sunspots"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Whiteheads"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Blackheads"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Fungal Acne"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Perioral Dermatitis"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Milia"));
             }
         };
     }
@@ -124,11 +124,11 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.MyView
     private List<ChildModel> getIngredientsItems() {
         return new ArrayList<ChildModel>() {
             {
-                add(new ChildModel(R.drawable.o_green_tea, "Green Tea"));
-                add(new ChildModel(R.drawable.o_salicylic_acid, "Salicylic acid"));
-                add(new ChildModel(R.drawable.o_tea_tree, "Tea Tree"));
-                add(new ChildModel(R.drawable.o_vitamin_c, "Vitamin C"));
-                add(new ChildModel(R.drawable.o_vitamin_e, "Vitamin E"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Green Tea"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Salicylic acid"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Tea Tree"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Vitamin C"));
+                add(new ChildModel("https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/wbibf5kz0gdidq0b_1614234544.jpeg", "Vitamin E"));
             }
         };
 

@@ -1,14 +1,14 @@
 package com.example.skincap.ui.home;
 
 public class ChildModel {
-    private int skin_image;
+    private String skin_image;
     private String skinName;
 
-    public ChildModel(int skin_image, String skinName){
+    public ChildModel(String skin_image, String skinName){
         this.skin_image = skin_image;
         this.skinName = skinName;
     }
-    public int getSkinImage() {
+    public String getSkinImage() {
         return skin_image;
     }
     public String getSkinName() {
