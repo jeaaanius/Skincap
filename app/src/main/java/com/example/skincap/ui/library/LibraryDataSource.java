@@ -102,6 +102,38 @@ public class LibraryDataSource {
                             "*Note: not an ingredient, but a dermatological procedure*\n" +
                             "With this procedure, the dermatologist scrapes off the milia then seals " +
                             "the skin with a hot wire."));
+            add(new Library("Oily",
+                    "The result of the overproduction of sebum from sebaceous glands.",
+                    "Genetics, hormone changes, or even stress may increase sebum production.",
+                    "@ Beta-Hydroxy Acids (BHAs)\n" +
+                            "BHAs are oil-soluble acids that plunge deep into pores to target oil " +
+                            "glands and decrease oil secretion.\n\n" +
+                            "@ Niacinamide\n" +
+                            "Lauded its anti-inflammatory, soothing, brightening, and skin tone-evening benefits\n\n" +
+                            "@ Glycolic Acid\n" +
+                            "An AHA that minimizes pores and speeds up cell turnover " +
+                            "for fresher, clearer, younger-looking skin."));
+            add(new Library("Dry",
+                    "an uncomfortable condition marked by scaling, itching, and cracking.",
+                    "Exposure to dry weather conditions, hot water, and certain chemicals " +
+                            "can cause your skin to dry out. Dry skin can also result from " +
+                            "underlying medical conditions.",
+                    "@ Alpha-hydroxy acids (AHAs)\n" +
+                            "AHAs are water-soluble acids derived from fruits or sugar cane that " +
+                            "exfoliate dull, dry skin.\n\n" +
+                            "@ Ceramides \n" +
+                            "This type of naturally-occurring fat holds skin cells together to help " +
+                            "form a waterproof seal and healthy skin barrier that keeps skin hydrated.\n\n" +
+                            "@ Cica\n" +
+                            "Centella asiatica (a.k.a. cica) is an herb rich in anti-inflammatories " +
+                            "that calms redness and irritation, regulates collagen synthesis, and " +
+                            "protects against environmental damage.\n\n" +
+                            "@ Humectants\n" +
+                            "water-loving ingredients that draw moisture into skin to help increase " +
+                            "moisture content over time.\n\n" +
+                            "@ Hyaluronic Acid (HA)\n" +
+                            "this gentle humectant attracts up to 1,000 times its weight in water " +
+                            "to hydrate, smooth, and plump dry or wrinkled skin."));
         }
     };
 
