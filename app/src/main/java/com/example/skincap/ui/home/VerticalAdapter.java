@@ -124,12 +124,11 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.MyView
     private List<ChildModel> getIngredientsItems() {
         return new ArrayList<ChildModel>() {
             {
-                add(new ChildModel(R.drawable.skin_type, "Ingredient#1"));
-                add(new ChildModel(R.drawable.skin_type, "Ingredient#2"));
-                add(new ChildModel(R.drawable.skin_type, "Ingredient#3"));
-                add(new ChildModel(R.drawable.skin_type, "Ingredient#4"));
-                add(new ChildModel(R.drawable.skin_type, "Ingredient#5"));
-                add(new ChildModel(R.drawable.skin_type, "Ingredient#6"));
+                add(new ChildModel(R.drawable.o_green_tea, "Green Tea"));
+                add(new ChildModel(R.drawable.o_salicylic_acid, "Salicylic acid"));
+                add(new ChildModel(R.drawable.o_tea_tree, "Tea Tree"));
+                add(new ChildModel(R.drawable.o_vitamin_c, "Vitamin C"));
+                add(new ChildModel(R.drawable.o_vitamin_e, "Vitamin E"));
             }
         };
 
