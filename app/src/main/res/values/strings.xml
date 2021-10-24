@@ -20,7 +20,7 @@
     <!-- Descriptions -->
     <string name="first_slide_desc">Image Processing for Skin Care Recommender with Skin Analyzer</string>
     <string name="second_slide_desc">Detect skin type and issue by taking\nphotos or import from your gallery</string>
-    <string name="third_slide_desc">Easily compare photos while making\nentries to track your progress</string>
+    <string name="third_slide_desc">Create journal with your \nentries to track your skin care progress</string>
     <string name="fourth_slide_desc">Get personalized recommendations\nbased on your skin type and skin care\ningredients</string>
     <!--Buttons-->
     <string name="gallery">Gallery</string>
@@ -46,17 +46,16 @@
     <string name="prediction_accuracy">Show prediction accuracy</string>
     <string name="top_three">Show top 3 prediction</string>
     <!-- Info -->
-    <string name="skin_cap_desc">SkinCap is a system for the researcher’s...\nLorem ipsum dolor sit amet, consectetur
-        \nadipiscing elit. Non adipiscing neque \nvarius augue in odio viverra fringilla.
-        Vitae \ndis et morbi sodales faucibus eget orci. </string>
+    <string name="skin_cap_desc">SkinCap is a system for the researcher’s thesis\nas a partial requirement in\n
+        Bachelor of Science in Computer Science\nin FEU TECH.</string>
     <string name="dev_1_name">Erika Paula S. Lim</string>
     <string name="dev_2_name">Jean Darren F. Limbo</string>
     <string name="dev_3_name">Emmanuel M. Peradilla</string>
     <string name="dev_4_name">Pauline Dominique R. Andoloy</string>
-    <string name="dev_1_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
-    <string name="dev_2_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
-    <string name="dev_3_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
-    <string name="dev_4_desc">Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit. Egestas \nid donec volutpat, diam at ac. </string>
+    <string name="dev_1_desc">Project Manager </string>
+    <string name="dev_2_desc">Web and Mobile Developer\nFront-end Specialist</string>
+    <string name="dev_3_desc">Founder of SkinCap \nAlgorithm and Back-end Developer </string>
+    <string name="dev_4_desc">System Content Designer\n</string>
     <string name="feu_tech">FEU TECH</string>
     <!-- Library -->
     <string name="definition">DEFINITION:</string>
