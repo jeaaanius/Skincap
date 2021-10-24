@@ -10,7 +10,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="start_your_skin_care_journey">Start your Skin Care Journey</string>
     <string name="discover_your_skin">Discover your skin for your\nskin care journey</string>
-    <string name="no_new_notifications">No new notifications</string>
     <string name="no_library">You have nothing to view\ncheck your skin now</string>
     <!--OnBoarding Screen -->
     <string name="first_slide_title">Welcome to SkinCap!</string>
@@ -42,9 +41,6 @@
     <string name="select_time">Select time</string>
     <string name="notes">NOTES</string>
     <string name="insert_notes">Insert notes</string>
-    <!-- Settings -->
-    <string name="prediction_accuracy">Show prediction accuracy</string>
-    <string name="top_three">Show top 3 prediction</string>
     <!-- Info -->
     <string name="skin_cap_desc">SkinCap is a system for the researcher’s thesis\nas a partial requirement in\n
         Bachelor of Science in Computer Science\nin FEU TECH.</string>
