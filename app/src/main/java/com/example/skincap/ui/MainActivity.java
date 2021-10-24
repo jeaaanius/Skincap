@@ -32,7 +32,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity implements NavController.OnDestinationChangedListener {
 
     private static final int START_DESTINATION_ID = R.id.home_dashboard;
-    private static final int[] MENU_ITEMS = new int[]{R.id.settings, R.id.notifs, R.id.info};
+    private static final int[] MENU_ITEMS = new int[]{R.id.settings, R.id.info};
 
     private MainActivityViewModel viewModel;
     private ActivityMainBinding binding;
@@ -143,9 +143,9 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     private static boolean isJournalOrLibraryNav(@IdRes final int destinationId) {
         // Check if the destination ID is Journal or Library start destination.
         // @see res -> navigation folder.
-        return destinationId == R.id.journal_list || destinationId == R.id.library_skin
-                || destinationId == R.id.infoFragment || destinationId == R.id.notificationFragment
-                || destinationId == R.id.settingsFragment;
+        return destinationId == R.id.journal_list || destinationId == R.id.library_skin ||
+                destinationId == R.id.camera_gallery
+                || destinationId == R.id.infoFragment || destinationId == R.id.settingsFragment;
     }
 
     private MenuItem getMenuItem(final int index) {
@@ -158,9 +158,6 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.notifs:
-                navigateToFragment(R.id.to_notifications);
-                return true;
             case R.id.info:
                 navigateToFragment(R.id.to_info);
                 return true;
@@ -168,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
                 navigateToFragment(R.id.to_settings);
                 return true;
             default:
-                return super.onOptionsItemSelected(item);
+                return false;
         }
 
     }
