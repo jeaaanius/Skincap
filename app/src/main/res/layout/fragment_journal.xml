@@ -6,7 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/journal_item"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/journal_list"
+        tools:itemCount="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
     <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/empty_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -27,9 +39,9 @@
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
             android:gravity="center"
             android:padding="16dp"
-            android:fontFamily="@font/montserrat"
             android:text="@string/start_your_skin_care_journey"
             android:textColor="@color/light_brown"
             android:textStyle="italic" />
@@ -39,8 +51,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/check_your_skin"
             android:fontFamily="@font/montserrat_bold"
+            android:text="@string/check_your_skin"
             app:cornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/gallery_button"
@@ -52,12 +64,12 @@
         android:id="@+id/floating_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_pencil"
+        android:contentDescription="@null"
         android:onClick="floating_button"
+        android:src="@drawable/ic_pencil"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:useCompatPadding="true"
-        android:contentDescription="@null" />
+        app:useCompatPadding="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

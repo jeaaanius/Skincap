@@ -1,12 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Skincap" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Skincap" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_brown</item>
-        <item name="colorPrimaryVariant">@color/light_brown</item>
+        <item name="colorPrimaryVariant">@color/dark_brown</item>
         <item name="colorOnPrimary">@color/cream</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/brushed_teal</item>
+        <item name="windowNoTitle">true</item>
         <item name="colorSecondaryVariant">@color/siam</item>
         <item name="colorOnSecondary">@color/light_brown</item>
         <!-- Status bar color. -->

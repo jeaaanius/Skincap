@@ -14,17 +14,27 @@ public class Journal {
     private String startDate;
     private String expectedDate;
     private String selectedTime;
+    private String note;
 
     @PrimaryKey
     @NotNull
     private String journalId;
 
-    public Journal(String title, String startDate, String expectedDate, String selectedTime) {
+    public Journal(String title, String startDate, String expectedDate, String selectedTime, String note) {
         this.title = title;
         this.startDate = startDate;
         this.expectedDate = expectedDate;
         this.selectedTime = selectedTime;
+        this.note = note;
         this.journalId = UUID.randomUUID().toString();
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public String getNote() {
+        return note;
     }
 
     public String getTitle() {
