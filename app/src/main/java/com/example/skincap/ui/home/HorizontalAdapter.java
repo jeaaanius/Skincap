@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.skincap.R;
+import com.example.skincap.util.GlideBinder;
 
 import java.util.List;
 
@@ -50,14 +51,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
         ChildModel currentItem = childModelArrayList.get(position);
         holder.skinName.setText(currentItem.getSkinName());
 
-        Glide.with(holder.skinImage)
-                .asBitmap()
-                .override(
-                        holder.skinImage.getWidth(),
-                        holder.skinImage.getHeight()
-                )
-                .load(currentItem.getSkinImage())
-                .into(holder.skinImage);
+        GlideBinder.bindImage(holder.skinImage, currentItem.getSkinImage());
     }
 
     @Override
