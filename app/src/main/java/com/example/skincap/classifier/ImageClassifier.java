@@ -42,8 +42,8 @@ public class ImageClassifier {
     public ImageClassifier(Activity activity) throws IOException {
         // loading the model
         MappedByteBuffer classifierModel = FileUtil.loadMappedFile(activity,
-                "model_quant.tflite");
-        labels = FileUtil.loadLabels(activity, "labels.txt");
+                "condition_model.tflite");
+        labels = FileUtil.loadLabels(activity, "condition_labels.txt");
 
         tensorClassifier = new Interpreter(classifierModel, null);
 
@@ -63,7 +63,9 @@ public class ImageClassifier {
 
         probabiltyImageBuffer = TensorBuffer.createFixedSize(outputImageShape, outputDataType);
 
-        probabilityProcessor = new TensorProcessor.Builder().add(new NormalizeOp(PROBABILITY_MEAN, PROBABILITY_STD))
+        probabilityProcessor = new TensorProcessor
+                .Builder()
+                .add(new NormalizeOp(PROBABILITY_MEAN, PROBABILITY_STD))
                 .build();
     }
 
@@ -80,7 +82,7 @@ public class ImageClassifier {
         // sorting predictions based on confidence
         Collections.sort(recognitions);
         // returning top 3 predictions
-        recognitions.subList(0, MAX_SIZE > recognitions.size() ? recognitions.size() : MAX_SIZE).clear();
+        recognitions.subList(0, Math.min(MAX_SIZE, recognitions.size())).clear();
         return recognitions;
     }
 

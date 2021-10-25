@@ -45,7 +45,6 @@ public class CreateJournalActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-
         binding.expectDateButton.setOnClickListener(button ->
                 setSelectedDate(button, selectedDate -> viewModel.setExpectedDueDate(selectedDate)));
 
@@ -55,7 +54,11 @@ public class CreateJournalActivity extends AppCompatActivity {
         binding.timeNotifButton.setOnClickListener(this::setSelectedTime);
 
         binding.cancel.setOnClickListener(e -> finish());
-        binding.save.setOnClickListener(e -> viewModel.addJournal());
+
+        binding.save.setOnClickListener(e -> {
+            viewModel.addJournal();
+            finish();
+        });
     }
 
     private void setInputListeners() {

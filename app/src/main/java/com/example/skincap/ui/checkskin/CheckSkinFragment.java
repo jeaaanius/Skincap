@@ -2,7 +2,6 @@ package com.example.skincap.ui.checkskin;
 
 import static android.app.Activity.RESULT_OK;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -12,15 +11,20 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.skincap.R;
+import com.example.skincap.classifier.ImageClassifier;
 import com.example.skincap.databinding.FragmentCheckSkinBinding;
 import com.example.skincap.ui.base.BaseFragment;
 
-import java.util.Objects;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.transform.Result;
 
 public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
 
@@ -37,13 +41,14 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
         binding = FragmentCheckSkinBinding.bind(view);
 
         binding.cameraButton.setOnClickListener(this::onClickCameraButton);
-        binding.galleryButton.setOnClickListener(this::onClickGalleryButton);
     }
 
     private void onClickCameraButton(View view) {
         //  For Starting Camera
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,CAMERA_REQUEST_CODE);
+       // Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // startActivityForResult(intent, CAMERA_REQUEST_CODE);
+
+      startActivity(new Intent(requireActivity(), ResultActivity.class));
     }
 
     private void onClickGalleryButton(View view) {
@@ -74,11 +79,49 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
     private void getCapturedImage(@Nullable final Intent data) {
         Bitmap captureImageBitmap = getDataOrNull(data);
         binding.checkSkinImage.setImageBitmap(captureImageBitmap);
+
+        try {
+            ImageClassifier imageClassifier = new ImageClassifier(requireActivity());
+
+
+            List<ImageClassifier.Recognition> predictions = imageClassifier.recognizeImage(
+                    captureImageBitmap, 0);
+
+            final List<String> predictionsList = new ArrayList<>();
+
+            for(ImageClassifier.Recognition recog : predictions){
+                predictionsList.add(recog.getName() + " : " + recog.getConfidence());
+            }
+
+            for (String string : predictionsList) {
+                Log.e(null, string);
+            }
+
+            //  ArrayAdapter<String> predictionsAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, predictionsList);
+
+
+        } catch (IOException e) {
+            Log.e("Image Classifier Error", "ERROR: " + e);
+        }
     }
 
     private void getSelectedImage(@Nullable final Intent data) {
-        Uri selectedImage = data.getData();
-        binding.checkSkinImage.setImageURI(selectedImage);
+        Uri selectedImage = data != null ? data.getData() : null;
+
+        String[] filePath = {MediaStore.Images.Media.DATA};
+
+        Cursor cursor = requireActivity().getContentResolver().query(selectedImage, filePath, null, null, null);
+        cursor.moveToFirst();
+
+        int columnIndex = cursor.getColumnIndex(filePath[0]);
+        String picturePath = cursor.getString(columnIndex);
+        cursor.close();
+
+        Bitmap selectedImageBitmap = (BitmapFactory.decodeFile(picturePath));
+        Log.w("Image Path:", picturePath + "");
+        binding.checkSkinImage.setImageBitmap(selectedImageBitmap);
+
+        // startActivity(new Intent(getActivity(), ResultActivity.class));
     }
 
     @SuppressWarnings("unchecked")

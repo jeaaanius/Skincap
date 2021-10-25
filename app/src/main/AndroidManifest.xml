@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.skincap">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:name=".SkinCapApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon_skincap"
@@ -27,6 +34,7 @@
         <activity android:name=".ui.OnBoarding" />
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.journal.CreateJournalActivity" />
+        <activity android:name=".ui.checkskin.ResultActivity"/>
     </application>
 
 </manifest>
