@@ -77,20 +77,8 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
     }
 
     private void getSelectedImage(@Nullable final Intent data) {
-        Uri selectedImage = data != null ? data.getData() : null;
-
-        String[] filePath = { MediaStore.Images.Media.DATA };
-
-        Cursor cursor = requireActivity().getContentResolver().query(selectedImage, filePath, null, null, null);
-        cursor.moveToFirst();
-
-        int columnIndex = cursor.getColumnIndex(filePath[0]);
-        String picturePath = cursor.getString(columnIndex);
-        cursor.close();
-
-        Bitmap selectedImageBitmap = (BitmapFactory.decodeFile(picturePath));
-        Log.w("Image Path:", picturePath + "");
-        binding.checkSkinImage.setImageBitmap(selectedImageBitmap);
+        Uri selectedImage = data.getData();
+        binding.checkSkinImage.setImageURI(selectedImage);
     }
 
     @SuppressWarnings("unchecked")
