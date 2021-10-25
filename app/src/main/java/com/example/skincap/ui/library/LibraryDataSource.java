@@ -58,14 +58,17 @@ public class LibraryDataSource {
                             "Studies looking at its use in mild to moderate acne are promising."));
             add(new Library("Blackheads",
                     "Small lumps on the skin caused by clogged hair follicles.",
-                    "",
+                    "Form when a hair follicle in the skin becomes clogged or " +
+                            "plugged. Dead skin cells and excess oil collect in the follicle’s " +
+                            "opening, which produces a bump. If the skin over the bump opens, " +
+                            "the air exposure causes the plug to look black, thus forming a blackhead.",
                     "► Azelaic acid\n" +
                             "often used as an alternative treatment for acne if the side effects of " +
                             "benzoyl peroxide or topical retinoids are particularly irritating or painful." +
                             "Azelaic acid works by getting rid of dead skin and killing bacteria."));
             add(new Library("Fungal Acne",
                     "Infection in the hair follicles of your skin.",
-                    "",
+                    "Caused by an overgrowth of yeast, a type of fungus.",
                     "► Itraconazole\n" +
                             "Many investigators have studied the efficacy of itraconazole, as this " +
                             "antifungal is excreted in high concentrations in sebum." +
@@ -84,7 +87,8 @@ public class LibraryDataSource {
                             "species of fungi and we know there are many."));
             add(new Library("Perioral Dermatitis",
                     "A rash involving the skin around the mouth that is inflamed.",
-                    "",
+                    "The cause of perioral dermatitis is unknown. However, experts " +
+                            "suggest that it can occur after the use of strong topical steroids on the skin.",
                     "► Vitamin B3 (INCI: Niacinamide)\n" +
                             "In the case of acne vulgaris where similar germ colonization occurs " +
                             "as in perioral dermatitis, vitamin B3 also has an anti-inflammatory " +
@@ -97,7 +101,10 @@ public class LibraryDataSource {
                             "Calms and helps regulate sebum production to promote a balanced, clear complexion."));
             add(new Library("Milia",
                     "Typically develops on the nose and cheeks as a little white lump.",
-                    "",
+                    "In older children and adults, milia are typically associated with some type of damage to the skin. This may include:\n" +
+                            "burns\n" +
+                            "long-term sun damage\n" +
+                            "long-term use of steroid creams\n",
                     "► Curettage\n" +
                             "*Note: not an ingredient, but a dermatological procedure*\n" +
                             "With this procedure, the dermatologist scrapes off the milia then seals " +
