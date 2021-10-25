@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <ImageView
         android:id="@+id/iv_capture"
         android:layout_width="0dp"
@@ -120,7 +119,7 @@
         app:layout_constraintStart_toEndOf="@+id/confidence2_tv"
         app:layout_constraintTop_toBottomOf="@+id/result_tv2" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -246,11 +245,10 @@
             <!--    ArrayList of the algorithm will be contained here-->
             <ListView
                 android:id="@+id/lv_probabilities"
-                android:layout_width="wrap_content"
-                android:layout_height="162dp"
-                android:visibility="gone" />
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp" />
+
         </LinearLayout>
-    </ScrollView>
-
-
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
