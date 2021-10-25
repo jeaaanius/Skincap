@@ -11,16 +11,6 @@
         android:label="Check Skin"
         tools:layout="@layout/fragment_check_skin" >
 
-        <action
-            android:id="@+id/to_settings"
-            app:destination="@id/settingsFragment" />
-
     </fragment>
-
-    <fragment
-        android:id="@+id/settingsFragment"
-        android:name="com.example.skincap.ui.settings.SettingsFragment"
-        android:label="Settings"
-        tools:layout="@layout/fragment_settings"/>
 
 </navigation>

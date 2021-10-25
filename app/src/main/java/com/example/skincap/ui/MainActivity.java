@@ -144,8 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
         // Check if the destination ID is Journal or Library start destination.
         // @see res -> navigation folder.
         return destinationId == R.id.journal_list || destinationId == R.id.library_skin ||
-                destinationId == R.id.camera_gallery
-                || destinationId == R.id.infoFragment;
+                destinationId == R.id.camera_gallery || destinationId == R.id.infoFragment;
     }
 
     private MenuItem getMenuItem(final int index) {
@@ -157,16 +156,11 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.info:
-                navigateToFragment(R.id.to_info);
-                return true;
-            case R.id.settings:
-                navigateToFragment(R.id.to_settings);
-                return true;
-            default:
-                return false;
+        if (item.getItemId() == R.id.info) {
+            navigateToFragment(R.id.to_info);
+            return true;
         }
+        return super.onOptionsItemSelected(item);
 
     }
 
