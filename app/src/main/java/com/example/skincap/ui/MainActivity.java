@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
         // @see res -> navigation folder.
         return destinationId == R.id.journal_list || destinationId == R.id.library_skin ||
                 destinationId == R.id.camera_gallery
-                || destinationId == R.id.infoFragment || destinationId == R.id.settingsFragment;
+                || destinationId == R.id.infoFragment;
     }
 
     private MenuItem getMenuItem(final int index) {
