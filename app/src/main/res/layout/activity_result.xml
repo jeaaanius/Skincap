@@ -143,7 +143,14 @@
             <ListView
                 android:id="@+id/lv_probabilities"
                 android:layout_width="match_parent"
-                android:layout_height="250dp" />
+                android:layout_height="0dp"
+                tools:ignore="Suspicious0dp"/>
+
+            <ListView
+                android:id="@+id/lv_probabilities2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                tools:ignore="Suspicious0dp" />
 
             <TextView
                 android:id="@+id/definition"
@@ -217,20 +224,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/ingred"
                 app:layout_constraintVertical_bias="0.169" />
 
-            <Button
-                android:id="@+id/bt_create_journal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="28dp"
-                android:text="Create Journal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ingred_desc"
-                tools:ignore="TextContrastCheck" />
+<!--            <Button-->
+<!--                android:id="@+id/bt_create_journal"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_marginBottom="28dp"-->
+<!--                android:text="Create Journal"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.498"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/ingred_desc"-->
+<!--                tools:ignore="TextContrastCheck" />-->
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

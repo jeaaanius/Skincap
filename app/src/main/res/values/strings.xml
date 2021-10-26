@@ -50,9 +50,12 @@
     <string name="dev_2_desc">Web and Mobile Developer\nFront-end Specialist</string>
     <string name="dev_3_desc">Founder of SkinCap \nAlgorithm and Back-end Developer </string>
     <string name="dev_4_desc">System Content Designer\n</string>
+    <string name="client_desc">DTI BIR FDA IPO Vegan Cruelty Free \nIg: elixirheaven \nTiktok: elixirheaven</string>
+    <string name="client_name">Elixir Heaven PH (CLIENT)</string>
     <string name="feu_tech">FEU TECH</string>
     <!-- Library -->
     <string name="definition">DEFINITION:</string>
     <string name="causes">CAUSES:</string>
     <string name="skin_ingred">SUGGESTED SKIN CARE INGREDIENTS:</string>
+
 </resources>

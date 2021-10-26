@@ -29,7 +29,7 @@ public class ImageClassifier {
     private static final float PROBABILITY_STD = 255.0F;
     private static final float IMAGE_STD = 1.0f;
     private static final float IMAGE_MEAN = 0.0f;
-    private static final int MAX_SIZE = 4;
+    private static final int MAX_SIZE = 0;
 
     private final Interpreter tensorClassifier;
     private final int imageResizeX;
