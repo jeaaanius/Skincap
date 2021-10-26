@@ -169,12 +169,45 @@
             app:layout_constraintStart_toEndOf="@+id/pau_dee"
             app:layout_constraintTop_toBottomOf="@+id/pau_dee_title" />
 
+        <ImageView
+            android:id="@+id/client"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pau_dee_desc"
+            app:srcCompat="@drawable/o_mentor_logo" />
+
+        <TextView
+            android:id="@+id/client_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/client_name"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/client"
+            app:layout_constraintTop_toBottomOf="@+id/pau_dee_desc" />
+
+        <TextView
+            android:id="@+id/client_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/client_desc"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@+id/client"
+            app:layout_constraintTop_toBottomOf="@+id/client_title" />
+
         <TextView
             android:id="@+id/feutech"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="150dp"
             android:text="@string/feu_tech"
             android:textColor="@color/siam"
             app:layout_constraintEnd_toEndOf="parent"
