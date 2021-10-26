@@ -5,13 +5,13 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.skincap.R;
+import com.example.skincap.classifier.AnalyzerClassifier;
 import com.example.skincap.classifier.ImageClassifier;
 import com.example.skincap.databinding.ActivityResultBinding;
 import com.example.skincap.util.GlideBinder;
@@ -46,13 +46,27 @@ public class ResultActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == CAMERA_REQUEST_CODE) {
-            Bitmap bitmapPhoto = (Bitmap) Objects.requireNonNull(Objects.requireNonNull(data).getExtras()).get("data");
-            bitmapPhoto = bitmapPhoto.copy(Bitmap.Config.ARGB_8888, true);
-            binding.ivCapture.setImageBitmap(bitmapPhoto);
 
-            GlideBinder.bindImage(binding.ivCapture, bitmapPhoto);
-            initImageClassifier(bitmapPhoto);
+        if (requestCode == CAMERA_REQUEST_CODE) {
+            if(resultCode == RESULT_CANCELED) {
+                finish();
+            }else{
+                Bitmap bitmapPhoto = (Bitmap) Objects.requireNonNull(Objects.requireNonNull(data).getExtras()).get("data");
+                bitmapPhoto = bitmapPhoto.copy(Bitmap.Config.ARGB_8888, true);
+                binding.ivCapture.setImageBitmap(bitmapPhoto);
+
+                GlideBinder.bindImage(binding.ivCapture, bitmapPhoto);
+                initImageClassifier(bitmapPhoto);
+                String result = binding.lvProbabilities.getItemAtPosition(0).toString() + " " +
+                        binding.lvProbabilities2.getItemAtPosition(0).toString();
+                String result_array[] = result.split(" ");
+                float confidence1 = (Float.parseFloat(result_array[2]))*100;
+                float confidence2 = (Float.parseFloat(result_array[5]))*100;
+                binding.resultTv.setText(result_array[0]);
+                binding.conditionConfidenceTv.setText(String.format("%.2f", confidence1) + "%");
+                binding.resultTv2.setText(result_array[3]);
+                binding.analyzerConfidenceTv.setText(String.format("%.2f", confidence2) + "%");
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -76,6 +90,25 @@ public class ResultActivity extends AppCompatActivity {
         } catch (IOException e) {
             Log.e("Image Classifier Error", "ERROR: " + e);
         }
+
+        // SECOND CLASSIFIER FOR SKIN ANALYZER
+        try {
+
+            AnalyzerClassifier classifier = new AnalyzerClassifier(this);
+
+            List<AnalyzerClassifier.Recognition> predictions = classifier.recognizeImage(bitmap, 0);
+
+            final List<String> predictionsList = new ArrayList<>();
+
+            for (AnalyzerClassifier.Recognition recognition : predictions) {
+                predictionsList.add(recognition.getName() + " : " + recognition.getConfidence());
+                Log.i("Probabilities: ", recognition.getName() + " : " + recognition.getConfidence());
+            }
+            setRecognizedProbabilities2(predictionsList);
+
+        } catch (IOException e) {
+            Log.e("Image Classifier Error", "ERROR: " + e);
+        }
     }
 
     private void setRecognizedProbabilities(final List<String> predictionsList) {
@@ -85,4 +118,14 @@ public class ResultActivity extends AppCompatActivity {
     private ArrayAdapter<String> getProbabilityAdapter(final List<String> predictionsList) {
         return new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, predictionsList);
     }
+
+    // SECOND CLASSIFIER METHODS
+    private void setRecognizedProbabilities2(final List<String> predictionsList) {
+        binding.lvProbabilities2.setAdapter(getProbabilityAdapter2(predictionsList));
+    }
+
+    private ArrayAdapter<String> getProbabilityAdapter2(final List<String> predictionsList) {
+        return new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, predictionsList);
+    }
+    //
 }
