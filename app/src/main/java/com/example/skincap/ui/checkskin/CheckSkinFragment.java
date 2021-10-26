@@ -1,22 +1,21 @@
 package com.example.skincap.ui.checkskin;
 
+import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.skincap.R;
+import com.example.skincap.classifier.AnalyzerClassifier;
 import com.example.skincap.classifier.ImageClassifier;
 import com.example.skincap.databinding.FragmentCheckSkinBinding;
 import com.example.skincap.ui.base.BaseFragment;
@@ -75,6 +74,7 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
             //  Gallery
             getSelectedImage(data);
         }
+
     }
 
     private void getCapturedImage(@Nullable final Intent data) {
@@ -100,10 +100,26 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
 
             //  ArrayAdapter<String> predictionsAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, predictionsList);
 
+        } catch (IOException e) {
+            Log.e("Image Classifier Error", "ERROR: " + e);
+        }
+        // FOR SKIN ANALYZER
+        try {
+            AnalyzerClassifier imageClassifier = new AnalyzerClassifier(requireActivity());
+            List<AnalyzerClassifier.Recognition> predictions = imageClassifier.recognizeImage(
+                    captureImageBitmap, 0);
+            final List<String> predictionsList = new ArrayList<>();
+            for(AnalyzerClassifier.Recognition recog : predictions){
+                predictionsList.add(recog.getName() + " : " + recog.getConfidence());
+            }
+            for (String string : predictionsList) {
+                Log.e(null, string);
+            }
 
         } catch (IOException e) {
             Log.e("Image Classifier Error", "ERROR: " + e);
         }
+
     }
 
     private void getSelectedImage(@Nullable final Intent data) {
