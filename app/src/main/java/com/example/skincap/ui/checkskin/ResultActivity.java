@@ -48,6 +48,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == CAMERA_REQUEST_CODE) {
             Bitmap bitmapPhoto = (Bitmap) Objects.requireNonNull(Objects.requireNonNull(data).getExtras()).get("data");
+            bitmapPhoto = bitmapPhoto.copy(Bitmap.Config.ARGB_8888, true);
             binding.ivCapture.setImageBitmap(bitmapPhoto);
 
             GlideBinder.bindImage(binding.ivCapture, bitmapPhoto);
