@@ -12,7 +12,6 @@
         android:layout_height="200dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -20,35 +19,33 @@
     <TextView
         android:id="@+id/skin_condition_tv"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginStart="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Skin Condition: "
+        android:text="Skin Condition:"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/result_tv"
-        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_capture" />
 
     <TextView
         android:id="@+id/result_tv"
-        android:layout_width="202dp"
-        android:layout_height="26dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
-        android:text="Acne"
+        android:text="ACNE"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/skin_condition_tv"
+        app:layout_constraintStart_toEndOf="@+id/skin_analyzer_tv"
         app:layout_constraintTop_toBottomOf="@+id/iv_capture" />
 
     <TextView
         android:id="@+id/confidence_tv"
         android:layout_width="wrap_content"
-        android:layout_height="22dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="180dp"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/montserrat"
@@ -60,7 +57,7 @@
     <TextView
         android:id="@+id/condition_confidence_tv"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/montserrat"
@@ -72,8 +69,8 @@
     <TextView
         android:id="@+id/skin_analyzer_tv"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="44dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:text="Skin Analyzer:"
@@ -84,14 +81,13 @@
     <TextView
         android:id="@+id/result_tv2"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
-        android:text="Oily"
-        android:textSize="16sp"
+        android:text="OILY"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toEndOf="@+id/skin_analyzer_tv"
         app:layout_constraintTop_toBottomOf="@+id/confidence_tv" />
 
@@ -143,6 +139,12 @@
             app:layout_constraintTop_toBottomOf="@+id/confidence2_tv"
             app:layout_constraintVertical_bias="0.0">
 
+            <!--    ArrayList of the algorithm will be contained here-->
+            <ListView
+                android:id="@+id/lv_probabilities"
+                android:layout_width="match_parent"
+                android:layout_height="250dp" />
+
             <TextView
                 android:id="@+id/definition"
                 android:layout_width="wrap_content"
@@ -153,34 +155,29 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/definition"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/definition" />
+                app:layout_constraintTop_toBottomOf="parent" />
 
             <TextView
                 android:id="@+id/definition_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/information"
-                app:layout_constraintVertical_bias="0.047" />
+                app:layout_constraintTop_toBottomOf="@+id/definition"/>
 
             <TextView
                 android:id="@+id/causes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginTop="10dp"
                 android:text="@string/causes"
+                android:fontFamily="@font/montserrat_bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/definition_desc" />
 
@@ -188,11 +185,8 @@
                 android:id="@+id/causes_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -203,9 +197,8 @@
                 android:id="@+id/ingred"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/skin_ingred"
                 app:layout_constraintStart_toStartOf="parent"
@@ -215,12 +208,8 @@
                 android:id="@+id/ingred_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="10dp"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -233,6 +222,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="28dp"
                 android:text="Create Journal"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -241,13 +231,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ingred_desc"
                 tools:ignore="TextContrastCheck" />
-            
-            <!--    ArrayList of the algorithm will be contained here-->
-            <ListView
-                android:id="@+id/lv_probabilities"
-                android:layout_width="match_parent"
-                android:layout_weight="1"
-                android:layout_height="0dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
