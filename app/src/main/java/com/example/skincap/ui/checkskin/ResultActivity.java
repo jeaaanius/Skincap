@@ -59,12 +59,28 @@ public class ResultActivity extends AppCompatActivity {
                 initImageClassifier(bitmapPhoto);
                 String result = binding.lvProbabilities.getItemAtPosition(0).toString() + " " +
                         binding.lvProbabilities2.getItemAtPosition(0).toString();
-                String result_array[] = result.split(" ");
-                float confidence1 = (Float.parseFloat(result_array[2]))*100;
-                float confidence2 = (Float.parseFloat(result_array[5]))*100;
-                binding.resultTv.setText(result_array[0]);
+
+                ArrayList<String> scripts = new ArrayList<String>();
+
+                String[] result_array = result.split(" : ",0);
+                for(int i = 0; i< result_array.length; i++){
+                    result_array[i].trim();
+                }
+                String temp_array[] = result_array[1].split(" ");
+                scripts.add(result_array[0]);
+                scripts.add(temp_array[0]);
+                scripts.add(temp_array[1]);
+                scripts.add(result_array[2]);
+
+//                for(int i = 0; i< scripts.size(); i++){
+//                    System.out.println(scripts.get(i));
+//                }
+                float confidence1 = (Float.parseFloat(scripts.get(1)))*100;
+                float confidence2 = (Float.parseFloat(scripts.get(3)))*100;
+
+                binding.resultTv.setText(scripts.get(0));
                 binding.conditionConfidenceTv.setText(String.format("%.2f", confidence1) + "%");
-                binding.resultTv2.setText(result_array[3]);
+                binding.resultTv2.setText(scripts.get(2));
                 binding.analyzerConfidenceTv.setText(String.format("%.2f", confidence2) + "%");
             }
         }
