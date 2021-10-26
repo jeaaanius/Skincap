@@ -41,6 +41,7 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
         binding = FragmentCheckSkinBinding.bind(view);
 
         binding.cameraButton.setOnClickListener(this::onClickCameraButton);
+        binding.galleryButton.setOnClickListener(this::onClickGalleryButton);
     }
 
     private void onClickCameraButton(View view) {
@@ -106,7 +107,8 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
     }
 
     private void getSelectedImage(@Nullable final Intent data) {
-        Uri selectedImage = data != null ? data.getData() : null;
+
+/*        Uri selectedImage = data != null ? data.getData() : null;
 
         String[] filePath = {MediaStore.Images.Media.DATA};
 
@@ -119,7 +121,10 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
 
         Bitmap selectedImageBitmap = (BitmapFactory.decodeFile(picturePath));
         Log.w("Image Path:", picturePath + "");
-        binding.checkSkinImage.setImageBitmap(selectedImageBitmap);
+        binding.checkSkinImage.setImageBitmap(selectedImageBitmap);*/
+
+        Uri selectedImage = data.getData() ;
+        binding.checkSkinImage.setImageURI(selectedImage);
 
         // startActivity(new Intent(getActivity(), ResultActivity.class));
     }
