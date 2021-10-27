@@ -115,7 +115,7 @@
         app:layout_constraintStart_toEndOf="@+id/confidence2_tv"
         app:layout_constraintTop_toBottomOf="@+id/result_tv2" />
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -217,6 +217,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="25dp"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -240,5 +241,5 @@
 <!--                tools:ignore="TextContrastCheck" />-->
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
