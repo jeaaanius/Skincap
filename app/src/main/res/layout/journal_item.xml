@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="180dp"
     android:layout_marginStart="12dp"
     android:layout_marginEnd="12dp"
     xmlns:tools="http://schemas.android.com/tools"
@@ -25,6 +25,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/get_photo_view"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/dev_2"
+            app:layout_constraintBottom_toTopOf="@+id/expected_date"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
         <TextView
             android:id="@+id/title"
             style="@style/TextAppearance.AppCompat.Medium"
@@ -32,19 +41,34 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat"
             tools:text="WHITEHEADS"
+            android:layout_marginTop="18dp"
             android:textAllCaps="true"
             android:textColor="@color/dark_brown"
-            app:layout_constraintBottom_toTopOf="@id/journal_state"
+            app:layout_constraintBottom_toTopOf="@id/notes"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/start_date"
-            app:layout_constraintVertical_bias="0.3" />
+            app:layout_constraintTop_toBottomOf="@id/start_date"/>
+
+        <TextView
+            android:id="@+id/notes"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:maxLength="15"
+            tools:text="Insert notes..."
+            android:layout_marginBottom="18dp"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="@color/dark_brown"
+            app:layout_constraintBottom_toTopOf="@id/journal_state"
+            app:layout_constraintTop_toBottomOf="@id/title"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/journal_state"
             style="@style/TextAppearance.AppCompat.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_check"
+            android:drawableStart="@drawable/ic_ongoing"
             app:drawableTint="@color/dark_brown"
             android:drawablePadding="6dp"
             tools:text="Ongoing"
