@@ -55,6 +55,7 @@ class JournalAdapter extends ListAdapter<Journal, JournalAdapter.JournalViewHold
             binding.startDate.setText(journal.getStartDate());
             binding.title.setText(journal.getTitle());
             binding.expectedDate.setText(journal.getExpectedDate());
+            binding.notes.setText(journal.getNote());
 
             // todo pa handle nalang ng states dito base sa use case nyo
             // binding.journalState.setText();
