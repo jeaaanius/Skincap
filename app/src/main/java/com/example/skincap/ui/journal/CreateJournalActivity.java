@@ -1,9 +1,13 @@
 package com.example.skincap.ui.journal;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.icu.text.SimpleDateFormat;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -22,10 +26,13 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Locale;
 
 public class CreateJournalActivity extends AppCompatActivity {
+
+    private static final int GALLERY_REQUEST_CODE = 1;
 
     private ActivityCreateJournalBinding binding;
 
@@ -51,6 +58,8 @@ public class CreateJournalActivity extends AppCompatActivity {
         binding.startDateButton.setOnClickListener(button ->
                 setSelectedDate(button, selectedDate -> viewModel.setStartDate(selectedDate)));
 
+        binding.includePhotoButton.setOnClickListener(this::onClickIncludePhotoButton);
+
         binding.timeNotifButton.setOnClickListener(this::setSelectedTime);
 
         binding.cancel.setOnClickListener(e -> finish());
@@ -59,6 +68,34 @@ public class CreateJournalActivity extends AppCompatActivity {
             viewModel.addJournal();
             finish();
         });
+    }
+
+    private void onClickIncludePhotoButton(View view) {
+
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, GALLERY_REQUEST_CODE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode != RESULT_OK) {
+            return;
+        }
+
+        if (requestCode == GALLERY_REQUEST_CODE) {
+            //  Gallery
+            getSelectedImage(data);
+        }
+
+    }
+
+    private void getSelectedImage(@Nullable final Intent data) {
+
+        Uri selectedImage = data.getData();
+        binding.includePhotoView.setImageURI(selectedImage);
+
     }
 
     private void setInputListeners() {
