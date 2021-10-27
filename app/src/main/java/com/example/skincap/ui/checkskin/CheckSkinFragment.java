@@ -4,7 +4,9 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -44,17 +46,16 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
     }
 
     private void onClickCameraButton(View view) {
-        //  For Starting Camera
-       // Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // startActivityForResult(intent, CAMERA_REQUEST_CODE);
 
       startActivity(new Intent(requireActivity(), ResultActivity.class));
     }
 
     private void onClickGalleryButton(View view) {
-        //  For Opening Gallery
+
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, GALLERY_REQUEST_CODE);
+
+        //startActivity(new Intent(requireActivity(), ResultActivity.class));
     }
 
     @Override
@@ -83,7 +84,6 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
 
         try {
             ImageClassifier imageClassifier = new ImageClassifier(requireActivity());
-
 
             List<ImageClassifier.Recognition> predictions = imageClassifier.recognizeImage(
                     captureImageBitmap, 0);
@@ -124,23 +124,51 @@ public class CheckSkinFragment extends BaseFragment<FragmentCheckSkinBinding> {
 
     private void getSelectedImage(@Nullable final Intent data) {
 
-/*        Uri selectedImage = data != null ? data.getData() : null;
+        Uri selectedImage = data.getData();
+        try {
+            Bitmap selectedImageBitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(),selectedImage);
+            binding.checkSkinImage.setImageBitmap(selectedImageBitmap);
 
-        String[] filePath = {MediaStore.Images.Media.DATA};
+           /* ImageClassifier imageClassifier = new ImageClassifier(requireActivity());
 
-        Cursor cursor = requireActivity().getContentResolver().query(selectedImage, filePath, null, null, null);
-        cursor.moveToFirst();
+            List<ImageClassifier.Recognition> predictions = imageClassifier.recognizeImage(
+                    selectedImageBitmap, 0);
 
-        int columnIndex = cursor.getColumnIndex(filePath[0]);
-        String picturePath = cursor.getString(columnIndex);
-        cursor.close();
+            final List<String> predictionsList = new ArrayList<>();
 
-        Bitmap selectedImageBitmap = (BitmapFactory.decodeFile(picturePath));
-        Log.w("Image Path:", picturePath + "");
-        binding.checkSkinImage.setImageBitmap(selectedImageBitmap);*/
+            for(ImageClassifier.Recognition recog : predictions){
+                predictionsList.add(recog.getName() + " : " + recog.getConfidence());
+            }
 
-        Uri selectedImage = data.getData() ;
-        binding.checkSkinImage.setImageURI(selectedImage);
+            for (String string : predictionsList) {
+                Log.e(null, string);
+            }*/
+
+        } catch(IOException e){
+            e.printStackTrace();
+            //Log.e("Image Classifier Error", "ERROR: " + e);
+        }
+
+        /*// FOR SKIN ANALYZER
+        try {
+            Bitmap selectedImageBitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(),selectedImage);
+            binding.checkSkinImage.setImageBitmap(selectedImageBitmap);
+
+            AnalyzerClassifier imageClassifier = new AnalyzerClassifier(requireActivity());
+            List<AnalyzerClassifier.Recognition> predictions = imageClassifier.recognizeImage(
+                    selectedImageBitmap, 0);
+            final List<String> predictionsList = new ArrayList<>();
+            for(AnalyzerClassifier.Recognition recog : predictions){
+                predictionsList.add(recog.getName() + " : " + recog.getConfidence());
+            }
+            for (String string : predictionsList) {
+                Log.e(null, string);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Log.e("Image Classifier Error", "ERROR: " + e);
+        }*/
 
         // startActivity(new Intent(getActivity(), ResultActivity.class));
     }

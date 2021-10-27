@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import static android.app.Activity.RESULT_OK;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import java.util.Objects;
 public class ResultActivity extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST_CODE = 1001;
+    //private static final int GALLERY_REQUEST_CODE = 1002;
 
     private ActivityResultBinding binding;
 
@@ -36,6 +38,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         startCameraInstant();
+        //startGalleryInstant();
     }
 
     @SuppressWarnings("deprecation")
@@ -43,6 +46,11 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, CAMERA_REQUEST_CODE);
     }
+   /*@SuppressWarnings("deprecation")
+    private void startGalleryInstant() {
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, GALLERY_REQUEST_CODE);
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -82,10 +90,13 @@ public class ResultActivity extends AppCompatActivity {
                 binding.conditionConfidenceTv.setText(String.format("%.2f", confidence1) + "%");
                 binding.resultTv2.setText(scripts.get(2));
                 binding.analyzerConfidenceTv.setText(String.format("%.2f", confidence2) + "%");
+
             }
         }
+
         super.onActivityResult(requestCode, resultCode, data);
     }
+
 
     private void initImageClassifier(final Bitmap bitmap) {
         try {
