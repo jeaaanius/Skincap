@@ -212,7 +212,7 @@
             android:textColor="@color/siam"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pau_dee_desc"/>
+            app:layout_constraintTop_toBottomOf="@id/client_desc"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
