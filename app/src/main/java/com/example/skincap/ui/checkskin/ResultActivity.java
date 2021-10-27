@@ -1,13 +1,16 @@
 package com.example.skincap.ui.checkskin;
-
+import com.example.skincap.ui.library.Library;
+import com.example.skincap.ui.library.LibraryAdapter;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import static android.app.Activity.RESULT_OK;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,10 +18,14 @@ import com.example.skincap.R;
 import com.example.skincap.classifier.AnalyzerClassifier;
 import com.example.skincap.classifier.ImageClassifier;
 import com.example.skincap.databinding.ActivityResultBinding;
+import com.example.skincap.ui.library.Library;
+import com.example.skincap.ui.library.LibraryAdapter;
+import com.example.skincap.ui.library.LibraryDataSource;
 import com.example.skincap.util.GlideBinder;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -80,9 +87,6 @@ public class ResultActivity extends AppCompatActivity {
                 scripts.add(temp_array[1]);
                 scripts.add(result_array[2]);
 
-//                for(int i = 0; i< scripts.size(); i++){
-//                    System.out.println(scripts.get(i));
-//                }
                 float confidence1 = (Float.parseFloat(scripts.get(1)))*100;
                 float confidence2 = (Float.parseFloat(scripts.get(3)))*100;
 
@@ -91,9 +95,58 @@ public class ResultActivity extends AppCompatActivity {
                 binding.resultTv2.setText(scripts.get(2));
                 binding.analyzerConfidenceTv.setText(String.format("%.2f", confidence2) + "%");
 
+                ArrayList<String> skinIssue = new ArrayList<>();
+                String[] otherList = new String[] {
+                        "Definition","Causes","Skin Care Ingredients",
+                        "","" //to be continued AHAAHAHA ang pangit tlaga pero gumagana
+                };
+                Collections.addAll(skinIssue, otherList);
+
+                //di ko pa malagay yung ResultsDataSource makalat pa HAHHAHAH XD
+
+                if(scripts.get(0).equals("Acne Papule")){
+                    binding.definitionDesc.setText(skinIssue.get(0));
+                    binding.causesDesc.setText(skinIssue.get(1));
+                    binding.ingredDesc.setText(skinIssue.get(2));
+                }
+                if(scripts.get(0).equals("Sunspots")){
+                    binding.definitionDesc.setText(skinIssue.get(0));
+                    binding.causesDesc.setText(skinIssue.get(1));
+                    binding.ingredDesc.setText(skinIssue.get(2));
+                }
+                if(scripts.get(0).equals("Whiteheads")){
+                    binding.definitionDesc.setText(skinIssue.get(0));
+                    binding.causesDesc.setText(skinIssue.get(1));
+                    binding.ingredDesc.setText(skinIssue.get(2));
+                }
+                if(scripts.get(0).equals("Blackheads")){
+                    binding.definitionDesc.setText(skinIssue.get(0));
+                    binding.causesDesc.setText(skinIssue.get(1));
+                    binding.ingredDesc.setText(skinIssue.get(2));
+                }
+                if(scripts.get(0).equals("Fungal Acne")){
+                    binding.definitionDesc.setText(skinIssue.get(0));
+                    binding.causesDesc.setText(skinIssue.get(1));
+                    binding.ingredDesc.setText(skinIssue.get(2));
+                }
+                if(scripts.get(0).equals("Perioral Dermatitis")){
+                    binding.definitionDesc.setText(skinIssue.get(0));
+                    binding.causesDesc.setText(skinIssue.get(1));
+                    binding.ingredDesc.setText(skinIssue.get(2));
+                }
+                if(scripts.get(0).equals("Milia")){
+                    binding.definitionDesc.setText(skinIssue.get(0));
+                    binding.causesDesc.setText(skinIssue.get(1));
+                    binding.ingredDesc.setText(skinIssue.get(2));
+                }
+                if(scripts.get(0).equals("Normal")){
+                    binding.definitionDesc.setText(skinIssue.get(0));
+                    binding.causesDesc.setText(skinIssue.get(1));
+                    binding.ingredDesc.setText(skinIssue.get(2));
+                }
+
             }
         }
-
         super.onActivityResult(requestCode, resultCode, data);
     }
 
