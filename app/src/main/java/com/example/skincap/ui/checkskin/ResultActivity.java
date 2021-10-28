@@ -180,7 +180,7 @@ public class ResultActivity extends AppCompatActivity {
                 "► Salicylic acid\n" +
                 "is a keratolytic and has anti-inflammatory, antibacterial, and antifungal properties.");
 
-        issue.add("Sunspots"); // 4 - 7
+        issue.add("Sun Spots"); // 4 - 7
         issue.add("Flat brown spots appear on parts of your skin that have been exposed to the sun.");
         issue.add("Sunspots occur as a result of overexposure to UV light. Therefore, " +
                 "spending too much time out in the sun or inside a tanning bed " +
@@ -315,7 +315,7 @@ public class ResultActivity extends AppCompatActivity {
             binding.causesDesc.setText(issue.get(2));
             binding.ingredDesc.setText(issue.get(3));
         }
-        else if(scripts.get(0).equals("Sunspots")){
+        else if(scripts.get(0).equals("Sun Spots")){
             binding.definitionDesc.setText(issue.get(5));
             binding.causesDesc.setText(issue.get(6));
             binding.ingredDesc.setText(issue.get(7));
