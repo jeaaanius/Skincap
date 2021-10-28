@@ -32,7 +32,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity implements NavController.OnDestinationChangedListener {
 
     private static final int START_DESTINATION_ID = R.id.home_dashboard;
-    private static final int[] MENU_ITEMS = new int[]{R.id.settings, R.id.info};
+    private static final int[] MENU_ITEMS = {R.id.info};
 
     private MainActivityViewModel viewModel;
     private ActivityMainBinding binding;
@@ -128,23 +128,9 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
             }
             for (int i = 0; i < MENU_ITEMS.length; i++) {
                 getMenuItem(i)
-                        .setVisible((i == 0) != (destinationId == START_DESTINATION_ID));
-
-                // Check the navigation destination explicitly by using its ID. If either the
-                // current destination is a library or the journal bottom navigation fragment.
-                // We have to hide all the menu items in every iteration.
-                if (isJournalOrLibraryNav(destinationId)) {
-                    getMenuItem(i).setVisible(false);
-                }
+                        .setVisible((i == 1) != (destinationId == START_DESTINATION_ID));
             }
         });
-    }
-
-    private static boolean isJournalOrLibraryNav(@IdRes final int destinationId) {
-        // Check if the destination ID is Journal or Library start destination.
-        // @see res -> navigation folder.
-        return destinationId == R.id.journal_list || destinationId == R.id.library_skin ||
-                destinationId == R.id.camera_gallery || destinationId == R.id.infoFragment;
     }
 
     private MenuItem getMenuItem(final int index) {
