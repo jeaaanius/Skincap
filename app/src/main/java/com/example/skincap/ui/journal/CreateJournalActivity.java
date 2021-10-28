@@ -2,14 +2,11 @@ package com.example.skincap.ui.journal;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 
@@ -26,7 +23,6 @@ import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.timepicker.MaterialTimePicker;
 import com.google.android.material.timepicker.TimeFormat;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.util.Locale;
 
@@ -69,7 +65,6 @@ public class CreateJournalActivity extends AppCompatActivity {
             finish();
         });
     }
-
     private void onClickIncludePhotoButton(View view) {
 
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

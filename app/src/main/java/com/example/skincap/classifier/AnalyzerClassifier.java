@@ -3,6 +3,8 @@ package com.example.skincap.classifier;
 import android.app.Activity;
 import android.graphics.Bitmap;
 
+import androidx.annotation.NonNull;
+
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.Interpreter;
 import org.tensorflow.lite.support.common.FileUtil;
@@ -101,12 +103,9 @@ public class AnalyzerClassifier {
     }
 
     // recognition class to return probabilities
-    public class Recognition implements Comparable{
+    public static class Recognition implements Comparable{
         private String name;
         private float confidence;
-
-        public Recognition() {
-        }
 
         public Recognition(String name, float confidence) {
             this.name = name;
@@ -126,10 +125,11 @@ public class AnalyzerClassifier {
             this.confidence = confidence;
         }
 
+        @NonNull
         @Override
         public String toString(){
             return "Recognition{" +
-                    "name='" + name + "\'" +
+                    "name='" + name + "'" +
                     ", confidence =" + confidence +
                     '}';
         }

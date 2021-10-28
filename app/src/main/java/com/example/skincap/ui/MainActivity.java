@@ -152,7 +152,6 @@ public class MainActivity extends AppCompatActivity implements NavController.OnD
 
     }
 
-
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

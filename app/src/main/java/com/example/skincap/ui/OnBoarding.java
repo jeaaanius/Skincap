@@ -19,12 +19,9 @@ public class OnBoarding extends AppCompatActivity {
     ViewPager viewPager;
     LinearLayout dotsLayout;
 
-    SliderAdapter sliderAdapter;
-    ImageView[] dots;
     Button getStarted;
     Button skipBtn;
     Button nextBtn;
-    Animation animation;
     int currentPos;
 
     @Override
@@ -40,7 +37,7 @@ public class OnBoarding extends AppCompatActivity {
         nextBtn = findViewById(R.id.next_btn);
 
         //Call adapter
-        sliderAdapter = new SliderAdapter(this);
+        SliderAdapter sliderAdapter = new SliderAdapter(this);
         viewPager.setAdapter(sliderAdapter);
 
         //Dots
@@ -60,7 +57,7 @@ public class OnBoarding extends AppCompatActivity {
 
     private void addDots(int position){
 
-        dots = new ImageView[4];
+        ImageView[] dots = new ImageView[4];
         dotsLayout.removeAllViews();
 
         for(int i=0; i<dots.length;i++){
@@ -70,9 +67,7 @@ public class OnBoarding extends AppCompatActivity {
 
             dotsLayout.addView(dots[i]);
         }
-        if(dots.length > 0){
-            dots[position].setImageResource(R.drawable.circle_inidcator_selected);
-        }
+        dots[position].setImageResource(R.drawable.circle_inidcator_selected);
     }
 
     ViewPager.OnPageChangeListener changeListener = new ViewPager.OnPageChangeListener() {
@@ -103,13 +98,12 @@ public class OnBoarding extends AppCompatActivity {
                 nextBtn.setVisibility(View.VISIBLE);
             }
             else {
-                animation = AnimationUtils.loadAnimation(OnBoarding.this,R.anim.bottom_anim);
+                Animation animation = AnimationUtils.loadAnimation(OnBoarding.this,R.anim.bottom_anim);
                 getStarted.setAnimation(animation);
                 getStarted.setVisibility(View.VISIBLE);
                 skipBtn.setVisibility(View.INVISIBLE);
                 nextBtn.setVisibility(View.INVISIBLE);
             }
-
         }
 
         @Override

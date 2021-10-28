@@ -148,13 +148,13 @@ public class ResultActivity extends AppCompatActivity {
         String result = binding.lvProbabilities.getItemAtPosition(0).toString() + " " +
                 binding.lvProbabilities2.getItemAtPosition(0).toString();
 
-        ArrayList<String> scripts = new ArrayList<String>();
+        ArrayList<String> scripts = new ArrayList<>();
 
         String[] result_array = result.split(" : ",0);
-        for(int i = 0; i< result_array.length; i++){
-            result_array[i].trim();
+        for (String s : result_array) {
+            s.trim();
         }
-        String temp_array[] = result_array[1].split(" ");
+        String[] temp_array = result_array[1].split(" ");
         scripts.add(result_array[0]);
         scripts.add(temp_array[0]);
         scripts.add(temp_array[1]);
@@ -168,7 +168,7 @@ public class ResultActivity extends AppCompatActivity {
         binding.resultTv2.setText(scripts.get(2));
         binding.analyzerConfidenceTv.setText(String.format("%.2f", confidence2) + "%");
 
-        ArrayList<String> issue = new ArrayList<String>();
+        ArrayList<String> issue = new ArrayList<>();
         issue.add("Acne Papule"); // 0 - 3
         issue.add("A tiny red lump on the skin. It normally has a diameter of less than 5 millimeters");
         issue.add("The primary causes of papules, and acne in general, include:\n" +
@@ -310,57 +310,61 @@ public class ResultActivity extends AppCompatActivity {
         issue.add("It could be the result of your healthy living, genetics, or proper regime.");
         issue.add("ALL IS WELL. Keep it up");
 
-        if(scripts.get(0).equals("Acne Papule")){
-            binding.definitionDesc.setText(issue.get(1));
-            binding.causesDesc.setText(issue.get(2));
-            binding.ingredDesc.setText(issue.get(3));
-        }
-        else if(scripts.get(0).equals("Sun Spots")){
-            binding.definitionDesc.setText(issue.get(5));
-            binding.causesDesc.setText(issue.get(6));
-            binding.ingredDesc.setText(issue.get(7));
-        }
-        else if(scripts.get(0).equals("Whiteheads")){
-            binding.definitionDesc.setText(issue.get(9));
-            binding.causesDesc.setText(issue.get(10));
-            binding.ingredDesc.setText(issue.get(11));
-        }
-        else if(scripts.get(0).equals("Blackheads")){
-            binding.definitionDesc.setText(issue.get(13));
-            binding.causesDesc.setText(issue.get(14));
-            binding.ingredDesc.setText(issue.get(15));
-        }
-        else if(scripts.get(0).equals("Fungal Acne")){
-            binding.definitionDesc.setText(issue.get(17));
-            binding.causesDesc.setText(issue.get(18));
-            binding.ingredDesc.setText(issue.get(19));
-        }
-        else if(scripts.get(0).equals("Perioral Dermatitis")){
-            binding.definitionDesc.setText(issue.get(21));
-            binding.causesDesc.setText(issue.get(22));
-            binding.ingredDesc.setText(issue.get(23));
-        }
-        else if(scripts.get(0).equals("Milia")){
-            binding.definitionDesc.setText(issue.get(25));
-            binding.causesDesc.setText(issue.get(26));
-            binding.ingredDesc.setText(issue.get(27));
+        switch (scripts.get(0)) {
+            case "Acne Papule":
+                binding.definitionDesc.setText(issue.get(1));
+                binding.causesDesc.setText(issue.get(2));
+                binding.ingredDesc.setText(issue.get(3));
+                break;
+            case "Sun Spots":
+                binding.definitionDesc.setText(issue.get(5));
+                binding.causesDesc.setText(issue.get(6));
+                binding.ingredDesc.setText(issue.get(7));
+                break;
+            case "Whiteheads":
+                binding.definitionDesc.setText(issue.get(9));
+                binding.causesDesc.setText(issue.get(10));
+                binding.ingredDesc.setText(issue.get(11));
+                break;
+            case "Blackheads":
+                binding.definitionDesc.setText(issue.get(13));
+                binding.causesDesc.setText(issue.get(14));
+                binding.ingredDesc.setText(issue.get(15));
+                break;
+            case "Fungal Acne":
+                binding.definitionDesc.setText(issue.get(17));
+                binding.causesDesc.setText(issue.get(18));
+                binding.ingredDesc.setText(issue.get(19));
+                break;
+            case "Perioral Dermatitis":
+                binding.definitionDesc.setText(issue.get(21));
+                binding.causesDesc.setText(issue.get(22));
+                binding.ingredDesc.setText(issue.get(23));
+                break;
+            case "Milia":
+                binding.definitionDesc.setText(issue.get(25));
+                binding.causesDesc.setText(issue.get(26));
+                binding.ingredDesc.setText(issue.get(27));
+                break;
         }
         if(scripts.get(0).equals("Normal")){
-            if(scripts.get(2).equals("Oily")){
-                binding.definitionDesc.setText(issue.get(29));
-                binding.causesDesc.setText(issue.get(30));
-                binding.ingredDesc.setText(issue.get(31));
-            }else if(scripts.get(2).equals("Dry")){
-                binding.definitionDesc.setText(issue.get(33));
-                binding.causesDesc.setText(issue.get(34));
-                binding.ingredDesc.setText(issue.get(35));
-            }else if(scripts.get(2).equals("Balanced")) {
-                binding.definitionDesc.setText(issue.get(37));
-                binding.causesDesc.setText(issue.get(38));
-                binding.ingredDesc.setText(issue.get(39));
+            switch (scripts.get(2)) {
+                case "Oily":
+                    binding.definitionDesc.setText(issue.get(29));
+                    binding.causesDesc.setText(issue.get(30));
+                    binding.ingredDesc.setText(issue.get(31));
+                    break;
+                case "Dry":
+                    binding.definitionDesc.setText(issue.get(33));
+                    binding.causesDesc.setText(issue.get(34));
+                    binding.ingredDesc.setText(issue.get(35));
+                    break;
+                case "Balanced":
+                    binding.definitionDesc.setText(issue.get(37));
+                    binding.causesDesc.setText(issue.get(38));
+                    binding.ingredDesc.setText(issue.get(39));
+                    break;
             }
-
         }
     }
-
 }

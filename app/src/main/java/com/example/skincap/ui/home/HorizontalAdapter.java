@@ -10,7 +10,6 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.skincap.R;
 import com.example.skincap.util.GlideBinder;
 

@@ -105,9 +105,6 @@ public class ImageClassifier {
         private String name;
         private float confidence;
 
-        public Recognition() {
-        }
-
         public Recognition(String name, float confidence) {
             this.name = name;
             this.confidence = confidence;

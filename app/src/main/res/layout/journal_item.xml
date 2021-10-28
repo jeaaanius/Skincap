@@ -69,12 +69,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_ongoing"
-            app:drawableTint="@color/dark_brown"
             android:drawablePadding="6dp"
-            tools:text="Ongoing"
             android:textColor="@color/dark_brown"
+            app:drawableTint="@color/dark_brown"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Ongoing" />
 
         <TextView
             app:layout_constraintEnd_toEndOf="parent"

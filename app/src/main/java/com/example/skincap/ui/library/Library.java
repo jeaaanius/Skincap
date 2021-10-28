@@ -1,5 +1,7 @@
 package com.example.skincap.ui.library;
 
+import androidx.annotation.NonNull;
+
 public class Library {
 
     private String skinIssue;
@@ -56,6 +58,7 @@ public class Library {
         this.expanded = expanded;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Library{" +

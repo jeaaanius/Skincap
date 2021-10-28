@@ -1,8 +1,8 @@
 package com.example.skincap.ui.home;
 
 public class ChildModel {
-    private String skin_image;
-    private String skinName;
+    private final String skin_image;
+    private final String skinName;
 
     public ChildModel(String skin_image, String skinName){
         this.skin_image = skin_image;
