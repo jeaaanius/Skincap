@@ -24,7 +24,7 @@
     <string name="camera">Camera</string>
     <string name="get_started">GET STARTED</string>
     <string name="save_journal">SAVE</string>
-    <string name="cancel_journal">Cancel</string>
+    <string name="cancel_journal">CANCEL</string>
     <string name="check_your_skin">Check your Skin</string>
     <!-- Home -->
     <string name="list_skin_type">Skin Types</string>
