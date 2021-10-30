@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +16,16 @@ import com.example.skincap.R;
 import com.example.skincap.classifier.AnalyzerClassifier;
 import com.example.skincap.classifier.ImageClassifier;
 import com.example.skincap.databinding.ActivityResultBinding;
+import com.example.skincap.ui.MainActivity;
 import com.example.skincap.util.GlideBinder;
+
+import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -45,11 +55,13 @@ public class ResultActivity extends AppCompatActivity {
 
     @SuppressWarnings("deprecation")
     private void startCameraInstant() {
+        OpenCVLoader.initDebug();
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, CAMERA_REQUEST_CODE);
     }
    @SuppressWarnings("deprecation")
     private void startGalleryInstant() {
+       OpenCVLoader.initDebug();
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, GALLERY_REQUEST_CODE);
     }
@@ -63,6 +75,7 @@ public class ResultActivity extends AppCompatActivity {
             }else{
                 Bitmap bitmapPhoto = (Bitmap) Objects.requireNonNull(Objects.requireNonNull(data).getExtras()).get("data");
                 resultBitmap(bitmapPhoto);
+                showSkin(bitmapPhoto);
             }
         }else if (requestCode == GALLERY_REQUEST_CODE){
             if(resultCode == RESULT_CANCELED){
@@ -72,6 +85,7 @@ public class ResultActivity extends AppCompatActivity {
                 try {
                     Bitmap selectedImageBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(),selectedImage);
                     resultBitmap(selectedImageBitmap);
+                    showSkin(selectedImageBitmap);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -148,13 +162,13 @@ public class ResultActivity extends AppCompatActivity {
         String result = binding.lvProbabilities.getItemAtPosition(0).toString() + " " +
                 binding.lvProbabilities2.getItemAtPosition(0).toString();
 
-        ArrayList<String> scripts = new ArrayList<>();
+        ArrayList<String> scripts = new ArrayList<String>();
 
         String[] result_array = result.split(" : ",0);
-        for (String s : result_array) {
-            s.trim();
+        for(int i = 0; i< result_array.length; i++){
+            result_array[i].trim();
         }
-        String[] temp_array = result_array[1].split(" ");
+        String temp_array[] = result_array[1].split(" ");
         scripts.add(result_array[0]);
         scripts.add(temp_array[0]);
         scripts.add(temp_array[1]);
@@ -168,7 +182,7 @@ public class ResultActivity extends AppCompatActivity {
         binding.resultTv2.setText(scripts.get(2));
         binding.analyzerConfidenceTv.setText(String.format("%.2f", confidence2) + "%");
 
-        ArrayList<String> issue = new ArrayList<>();
+        ArrayList<String> issue = new ArrayList<String>();
         issue.add("Acne Papule"); // 0 - 3
         issue.add("A tiny red lump on the skin. It normally has a diameter of less than 5 millimeters");
         issue.add("The primary causes of papules, and acne in general, include:\n" +
@@ -310,61 +324,123 @@ public class ResultActivity extends AppCompatActivity {
         issue.add("It could be the result of your healthy living, genetics, or proper regime.");
         issue.add("ALL IS WELL. Keep it up");
 
-        switch (scripts.get(0)) {
-            case "Acne Papule":
-                binding.definitionDesc.setText(issue.get(1));
-                binding.causesDesc.setText(issue.get(2));
-                binding.ingredDesc.setText(issue.get(3));
-                break;
-            case "Sun Spots":
-                binding.definitionDesc.setText(issue.get(5));
-                binding.causesDesc.setText(issue.get(6));
-                binding.ingredDesc.setText(issue.get(7));
-                break;
-            case "Whiteheads":
-                binding.definitionDesc.setText(issue.get(9));
-                binding.causesDesc.setText(issue.get(10));
-                binding.ingredDesc.setText(issue.get(11));
-                break;
-            case "Blackheads":
-                binding.definitionDesc.setText(issue.get(13));
-                binding.causesDesc.setText(issue.get(14));
-                binding.ingredDesc.setText(issue.get(15));
-                break;
-            case "Fungal Acne":
-                binding.definitionDesc.setText(issue.get(17));
-                binding.causesDesc.setText(issue.get(18));
-                binding.ingredDesc.setText(issue.get(19));
-                break;
-            case "Perioral Dermatitis":
-                binding.definitionDesc.setText(issue.get(21));
-                binding.causesDesc.setText(issue.get(22));
-                binding.ingredDesc.setText(issue.get(23));
-                break;
-            case "Milia":
-                binding.definitionDesc.setText(issue.get(25));
-                binding.causesDesc.setText(issue.get(26));
-                binding.ingredDesc.setText(issue.get(27));
-                break;
+        if(scripts.get(0).equals("Acne Papule")){
+            binding.definitionDesc.setText(issue.get(1));
+            binding.causesDesc.setText(issue.get(2));
+            binding.ingredDesc.setText(issue.get(3));
+        }
+        else if(scripts.get(0).equals("Sun Spots")){
+            binding.definitionDesc.setText(issue.get(5));
+            binding.causesDesc.setText(issue.get(6));
+            binding.ingredDesc.setText(issue.get(7));
+        }
+        else if(scripts.get(0).equals("Whiteheads")){
+            binding.definitionDesc.setText(issue.get(9));
+            binding.causesDesc.setText(issue.get(10));
+            binding.ingredDesc.setText(issue.get(11));
+        }
+        else if(scripts.get(0).equals("Blackheads")){
+            binding.definitionDesc.setText(issue.get(13));
+            binding.causesDesc.setText(issue.get(14));
+            binding.ingredDesc.setText(issue.get(15));
+        }
+        else if(scripts.get(0).equals("Fungal Acne")){
+            binding.definitionDesc.setText(issue.get(17));
+            binding.causesDesc.setText(issue.get(18));
+            binding.ingredDesc.setText(issue.get(19));
+        }
+        else if(scripts.get(0).equals("Perioral Dermatitis")){
+            binding.definitionDesc.setText(issue.get(21));
+            binding.causesDesc.setText(issue.get(22));
+            binding.ingredDesc.setText(issue.get(23));
+        }
+        else if(scripts.get(0).equals("Milia")){
+            binding.definitionDesc.setText(issue.get(25));
+            binding.causesDesc.setText(issue.get(26));
+            binding.ingredDesc.setText(issue.get(27));
         }
         if(scripts.get(0).equals("Normal")){
-            switch (scripts.get(2)) {
-                case "Oily":
-                    binding.definitionDesc.setText(issue.get(29));
-                    binding.causesDesc.setText(issue.get(30));
-                    binding.ingredDesc.setText(issue.get(31));
-                    break;
-                case "Dry":
-                    binding.definitionDesc.setText(issue.get(33));
-                    binding.causesDesc.setText(issue.get(34));
-                    binding.ingredDesc.setText(issue.get(35));
-                    break;
-                case "Balanced":
-                    binding.definitionDesc.setText(issue.get(37));
-                    binding.causesDesc.setText(issue.get(38));
-                    binding.ingredDesc.setText(issue.get(39));
-                    break;
+            if(scripts.get(2).equals("Oily")){
+                binding.definitionDesc.setText(issue.get(29));
+                binding.causesDesc.setText(issue.get(30));
+                binding.ingredDesc.setText(issue.get(31));
+            }else if(scripts.get(2).equals("Dry")){
+                binding.definitionDesc.setText(issue.get(33));
+                binding.causesDesc.setText(issue.get(34));
+                binding.ingredDesc.setText(issue.get(35));
+            }else if(scripts.get(2).equals("Balanced")) {
+                binding.definitionDesc.setText(issue.get(37));
+                binding.causesDesc.setText(issue.get(38));
+                binding.ingredDesc.setText(issue.get(39));
             }
+
         }
+//        if(confidence1 < 50) {
+//            Toast.makeText(ResultActivity.this, "For Better accuracy\nTry Clearer Image", Toast.LENGTH_LONG).show();
+//
+//        }
+    }
+
+    private void showSkin(Bitmap image){
+        Mat hsvImage;
+        Mat thresholdImage[] = new Mat[9];
+        for(int i=0; i<thresholdImage.length; i++)
+        {
+            thresholdImage[i] = new Mat(256, 256, CvType.CV_8U);
+        }
+
+        hsvImage = new Mat(256, 256, CvType.CV_8U);
+        Utils.bitmapToMat(image, hsvImage);
+        Imgproc.cvtColor(hsvImage, hsvImage, Imgproc.COLOR_RGB2HSV);
+        Utils.matToBitmap(hsvImage,image);
+
+
+        Scalar skin = new Scalar(0,24,151);
+        Scalar skin2 = new Scalar(23,197,255);
+
+        Scalar skin3 = new Scalar(3, 83, 172);
+        Scalar skin4 = new Scalar(23, 103, 252);
+
+        Scalar skin5 = new Scalar(0, 58, 170);
+        Scalar skin6 = new Scalar(20, 78, 250);
+
+        Scalar skin7 = new Scalar(0, 61, 101);
+        Scalar skin8 = new Scalar(21, 81, 199);
+
+        Scalar skin9 = new Scalar(6, 46, 132);
+        Scalar skin10 = new Scalar(26, 66, 212);
+
+
+        Core.inRange(hsvImage, skin, skin2, thresholdImage[0]);
+        Core.inRange(hsvImage, skin3, skin4, thresholdImage[1]);
+        Core.inRange(hsvImage, skin5, skin6, thresholdImage[2]);
+        Core.inRange(hsvImage, skin7, skin8, thresholdImage[3]);
+        Core.inRange(hsvImage, skin9, skin10, thresholdImage[4]);
+
+        Bitmap image2 = Bitmap.createBitmap(thresholdImage[0].cols(), thresholdImage[0].rows(), Bitmap.Config.ARGB_8888);
+
+        Core.bitwise_or(thresholdImage[0],thresholdImage[1], thresholdImage[5]);
+        Core.bitwise_or(thresholdImage[2],thresholdImage[3], thresholdImage[6]);
+        Core.bitwise_or(thresholdImage[4],thresholdImage[5], thresholdImage[7]);
+        Core.bitwise_or(thresholdImage[6],thresholdImage[7], thresholdImage[8]);
+
+        Utils.matToBitmap(thresholdImage[8],image2);
+
+        int length = image.getWidth(); // row
+        int width = image.getHeight(); // col
+
+        float white = Core.countNonZero(thresholdImage[8]);
+        white = (white/(length * width))*100;
+
+        if(white < 50){
+            for (int i = 0; i<2; i++){
+                Toast.makeText(ResultActivity.this, "Skin Detected is too limited\nTry clearer and closer image, plus good lighting" ,Toast.LENGTH_LONG).show();
+            }
+        }else{
+            Toast.makeText(ResultActivity.this, "Skin Detection Successfull" ,Toast.LENGTH_LONG).show();
+        }
+
+        binding.ivCapture2.setImageBitmap(image2);
+        binding.skinDetectTv.setText( String.format("%.2f", white) + "%");
     }
 }
