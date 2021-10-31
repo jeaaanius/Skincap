@@ -6,15 +6,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_capture"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/linear_Layout"
+        android:orientation="horizontal"
         android:layout_height="200dp"
+        android:layout_width="match_parent"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight="0.5" >
+
+            <ImageView
+                android:id="@+id/iv_capture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                tools:srcCompat="@tools:sample/avatars" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight="0.5">
+
+            <ImageView
+                android:id="@+id/iv_capture2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/skin_detect_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/montserrat"
+        android:text="90%"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/skin_detect_tv2"
+        app:layout_constraintTop_toBottomOf="@+id/linear_Layout" />
+
+    <TextView
+        android:id="@+id/skin_detect_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Skin Detected:"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_Layout" />
 
     <TextView
         android:id="@+id/skin_condition_tv"
@@ -26,7 +80,7 @@
         android:text="Skin Condition:"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_capture" />
+        app:layout_constraintTop_toBottomOf="@+id/skin_detect_tv" />
 
     <TextView
         android:id="@+id/result_tv"
@@ -40,7 +94,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/skin_analyzer_tv"
-        app:layout_constraintTop_toBottomOf="@+id/iv_capture" />
+        app:layout_constraintTop_toBottomOf="@+id/skin_detect_tv" />
 
     <TextView
         android:id="@+id/confidence_tv"
@@ -157,7 +211,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                    android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="25dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/definition"
                 app:layout_constraintStart_toStartOf="parent"
@@ -168,7 +223,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -180,7 +235,7 @@
                 android:id="@+id/causes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/causes"
                 android:fontFamily="@font/montserrat_bold"
@@ -191,7 +246,7 @@
                 android:id="@+id/causes_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
                 android:text=""
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -203,7 +258,7 @@
                 android:id="@+id/ingred"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="@string/skin_ingred"
@@ -214,7 +269,7 @@
                 android:id="@+id/ingred_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="25dp"
                 android:text=""

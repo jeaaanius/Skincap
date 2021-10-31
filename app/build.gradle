@@ -14,6 +14,7 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
+        applicationId "opencv.org"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -54,6 +55,13 @@ android {
     aaptOptions {
         noCompress "tflite"
     }
+    sourceSets {
+        main {
+            jni {
+                srcDirs 'src\\main\\jni', 'src\\main\\jniLibs'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -63,7 +71,10 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.room:room-compiler:2.2.6'
-    testImplementation 'junit:junit:4.+'
+    implementation project(path: ':sdk')
+    // changed 10-28-21
+    testImplementation 'junit:junit:4.13.2'
+    //
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
