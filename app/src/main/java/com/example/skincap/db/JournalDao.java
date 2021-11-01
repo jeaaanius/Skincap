@@ -18,4 +18,7 @@ public interface JournalDao {
 
     @Query("SELECT * FROM journal")
     LiveData<List<Journal>> getJournals();
+
+    @Query("DELETE FROM journal WHERE journalId=:id")
+    void deleteJournal(String id);
 }
