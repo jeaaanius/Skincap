@@ -57,5 +57,11 @@
     <string name="definition">DEFINITION:</string>
     <string name="causes">CAUSES:</string>
     <string name="skin_ingred">SUGGESTED SKIN CARE INGREDIENTS:</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="error_gif">x or y bound size should be at least %1$dpx and file size should be no more than %2$sM</string>
 
+    <string name="permission_message">To maximize the seamless experience and features when using the app, SkinCap requires access to the following:\n\n• Camera\n• Storage &amp; Media</string>
+    <string name="request_permission">Request Permissions</string>
+    <string name="allow_permission">Allow</string>
 </resources>
