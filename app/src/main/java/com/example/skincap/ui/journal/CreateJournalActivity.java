@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.skincap.R;
 import com.example.skincap.databinding.ActivityCreateJournalBinding;
 import com.example.skincap.model.Journal;
+import com.example.skincap.util.FilePathParser;
 import com.example.skincap.util.GlideBinder;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.CalendarConstraints;
@@ -82,6 +83,14 @@ public class CreateJournalActivity extends AppCompatActivity {
             binding.expectDateButton.setText(journal.getExpectedDate());
             binding.timeNotifButton.setText(journal.getSelectedTime());
             binding.notes.setText(journal.getNote());
+
+            final Uri imageUri = FilePathParser
+                    .parseImagePath(journal.getImagePath());
+
+            if (imageUri != null) {
+                getSelectedImage(imageUri);
+            }
+
         } catch (NullPointerException e) {
             Log.e("setExtras", e.getMessage());
         }

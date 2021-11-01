@@ -109,8 +109,10 @@ class JournalAdapter extends ListAdapter<Journal, JournalAdapter.JournalViewHold
             binding.expectedDate.setText(journal.getExpectedDate());
             binding.notes.setText(journal.getNote());
 
-            Uri imagePath = Uri.fromFile(new File(journal.getImagePath()));
-            GlideBinder.bindImage(binding.photoView, imagePath);
+            if (journal.getImagePath() != null) {
+                Uri imagePath = Uri.fromFile(new File(journal.getImagePath()));
+                GlideBinder.bindImage(binding.photoView, imagePath);
+            }
 
             // todo pa handle nalang ng states dito base sa use case nyo
             // binding.journalState.setText();
