@@ -8,6 +8,9 @@ import androidx.room.RoomDatabase;
 
 import com.example.skincap.model.Journal;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 @Database(
         entities = {
                 Journal.class
@@ -21,6 +24,8 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE = null;
 
+    private static final ExecutorService executorService = Executors.newSingleThreadExecutor();
+
     public static void setINSTANCE(final Context context) {
         synchronized (AppDatabase.class) {
             if (INSTANCE == null) {
@@ -28,12 +33,22 @@ public abstract class AppDatabase extends RoomDatabase {
                         context,
                         AppDatabase.class,
                         "SkinCapCache.db"
-                ).build();
+                )
+                        .fallbackToDestructiveMigration()
+                        .build();
             }
         }
     }
 
     public static AppDatabase getInstance() {
         return INSTANCE;
+    }
+
+    public static void deleteJournal(final String id) {
+        executorService.execute(() -> {
+            AppDatabase.getInstance()
+                    .journalDao()
+                    .deleteJournal(id);
+        });
     }
 }
