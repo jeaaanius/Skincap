@@ -21,4 +21,8 @@ public class JournalListViewModel extends ViewModel {
     public LiveData<List<Journal>> getJournals() {
         return journalList;
     }
+
+    public void deleteJournal(String id) {
+        AppDatabase.deleteJournal(id);
+    }
 }
