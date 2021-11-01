@@ -2,6 +2,7 @@ package com.example.skincap.ui.journal;
 
 import android.app.Application;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.AndroidViewModel;
 
 import com.example.skincap.db.AppDatabase;
@@ -22,6 +23,7 @@ public class CreateJournalViewModel extends AndroidViewModel {
     private String expectedDueDate;
     private String selectedTime;
     private String notes;
+    private String imagePath;
 
     public CreateJournalViewModel(Application application) {
         super(application);
@@ -30,14 +32,16 @@ public class CreateJournalViewModel extends AndroidViewModel {
                 .journalDao();
     }
 
-    void addJournal() {
-        final Journal journal = new Journal(
-                skinIssue,
-                startDate,
-                expectedDueDate,
-                selectedTime,
-                notes
-        );
+    void addJournal(@Nullable String id) {
+        Journal journal = new Journal.Builder()
+                .setTitle(skinIssue)
+                .setStartDate(startDate)
+                .setExpectedDate(expectedDueDate)
+                .setSelectedTime(selectedTime)
+                .setNote(notes)
+                .setImagePath(imagePath)
+                .setId(id)
+                .build();
 
         executorService.execute(() -> journalDao.insetJournal(journal));
     }
@@ -56,6 +60,10 @@ public class CreateJournalViewModel extends AndroidViewModel {
 
     public void setSkinIssue(String skinIssue) {
         this.skinIssue = skinIssue;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public void setStartDate(String startDate) {
