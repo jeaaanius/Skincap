@@ -1,1 +1,0 @@
-C:\Users\USER\AndroidStudioProjects\Skincap\sdk\build\intermediates\cxx\RelWithDebInfo\242v3g4h\obj\arm64-v8a
