@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ToolbarWhite" parent="Toolbar.Zhihu">
+        <item name="android:statusBarColor">@color/dark_brown</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>
