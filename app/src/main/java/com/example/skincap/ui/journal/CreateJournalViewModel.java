@@ -32,6 +32,16 @@ public class CreateJournalViewModel extends AndroidViewModel {
                 .journalDao();
     }
 
+    void updateJournal(Journal journal) {
+        setSkinIssue(journal.getTitle());
+        setStartDate(journal.getStartDate());
+        setExpectedDueDate(journal.getExpectedDate());
+        setSelectedTime(journal.getSelectedTime());
+        setNotes(journal.getNote());
+        setImagePath(journal.getImagePath());
+        addJournal(journal.getJournalId());
+    }
+
     void addJournal(@Nullable String id) {
         Journal journal = new Journal.Builder()
                 .setTitle(skinIssue)
@@ -68,9 +78,5 @@ public class CreateJournalViewModel extends AndroidViewModel {
 
     public void setStartDate(String startDate) {
         this.startDate = startDate;
-    }
-
-    public String getSelectedTime() {
-        return selectedTime;
     }
 }

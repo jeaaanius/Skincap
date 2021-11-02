@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.skincap.R;
 import com.example.skincap.databinding.JournalItemBinding;
 import com.example.skincap.model.Journal;
+import com.example.skincap.util.FilePathParser;
 import com.example.skincap.util.GlideBinder;
 
 import java.io.File;
@@ -109,8 +110,9 @@ class JournalAdapter extends ListAdapter<Journal, JournalAdapter.JournalViewHold
             binding.expectedDate.setText(journal.getExpectedDate());
             binding.notes.setText(journal.getNote());
 
-            if (journal.getImagePath() != null) {
-                Uri imagePath = Uri.fromFile(new File(journal.getImagePath()));
+            Uri imagePath = FilePathParser.parseImagePath(journal.getImagePath());
+
+            if (imagePath != null) {
                 GlideBinder.bindImage(binding.photoView, imagePath);
             }
 
