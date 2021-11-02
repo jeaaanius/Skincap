@@ -82,7 +82,7 @@ public class CreateJournalActivity extends AppCompatActivity {
             binding.startDateButton.setText(journal.getStartDate());
             binding.expectDateButton.setText(journal.getExpectedDate());
             binding.timeNotifButton.setText(journal.getSelectedTime());
-            binding.notes.setText(journal.getNote());
+            binding.notesName.setText(journal.getNote());
 
             final Uri imageUri = FilePathParser
                     .parseImagePath(journal.getImagePath());
@@ -91,8 +91,9 @@ public class CreateJournalActivity extends AppCompatActivity {
                 getSelectedImage(imageUri);
             }
 
+            viewModel.updateJournal(journal);
         } catch (NullPointerException e) {
-            Log.e("setExtras", e.getMessage());
+            // space for rent
         }
     }
 
