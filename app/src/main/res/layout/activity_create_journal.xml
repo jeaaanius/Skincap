@@ -19,7 +19,6 @@
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:text="@string/skin_issue"
-            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" />
 
@@ -78,7 +77,6 @@
             android:layout_marginTop="38dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/start_date"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/start_date_calendar"
             app:layout_constraintTop_toBottomOf="@+id/include_photo_button" />
 
@@ -89,8 +87,8 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat"
             android:hint="JAN 01 2021"
+            android:textColorHint="@color/gray"
             app:backgroundTint="@color/white"
-            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintStart_toStartOf="parent"
@@ -114,7 +112,6 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/expect_date"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/exp_date_calendar"
             app:layout_constraintTop_toBottomOf="@+id/start_date_button"
             tools:layout_editor_absoluteX="42dp" />
@@ -126,8 +123,8 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat"
             android:hint="JAN 01 2021"
+            android:textColorHint="@color/gray"
             app:backgroundTint="@color/white"
-            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintStart_toStartOf="parent"
@@ -161,7 +158,6 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/select_time"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/time_notif"
             app:layout_constraintTop_toBottomOf="@+id/horizontal_line" />
 
@@ -172,8 +168,8 @@
             android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat"
             android:hint="12:00"
+            android:textColorHint="@color/gray"
             app:backgroundTint="@color/white"
-            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.196"
             app:layout_constraintStart_toStartOf="parent"
@@ -207,7 +203,6 @@
             android:layout_marginTop="20dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/notes"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/start_date_calendar"
             app:layout_constraintTop_toBottomOf="@+id/horizontal_line_2" />
 

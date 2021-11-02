@@ -29,7 +29,6 @@
             android:gravity="center"
             android:padding="5dp"
             android:text="@string/skin_cap_desc"
-            android:textColor="@color/black"
             android:textSize="13sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +53,6 @@
             android:layout_marginTop="35dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/dev_3_name"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/emman_per"
             app:layout_constraintTop_toBottomOf="@+id/skin_cap_info" />
 
@@ -65,7 +63,6 @@
             android:layout_marginStart="24dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/dev_3_desc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/emman_per"
             app:layout_constraintTop_toBottomOf="@+id/emman_per_title" />
 
@@ -87,7 +84,6 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/dev_2_name"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/jean_limbo"
             app:layout_constraintTop_toBottomOf="@+id/emman_per_desc" />
 
@@ -98,7 +94,6 @@
             android:layout_marginStart="24dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/dev_2_desc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/jean_limbo"
             app:layout_constraintTop_toBottomOf="@+id/jean_limbo_title" />
 
@@ -120,7 +115,6 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/dev_1_name"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/pau_lim"
             app:layout_constraintTop_toBottomOf="@+id/jean_limbo_desc" />
 
@@ -131,7 +125,6 @@
             android:layout_marginStart="24dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/dev_1_desc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/pau_lim"
             app:layout_constraintTop_toBottomOf="@+id/pau_lim_title" />
 
@@ -153,7 +146,6 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/dev_4_name"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/pau_dee"
             app:layout_constraintTop_toBottomOf="@+id/pau_lim_desc" />
 
@@ -164,7 +156,6 @@
             android:layout_marginStart="24dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/dev_4_desc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/pau_dee"
             app:layout_constraintTop_toBottomOf="@+id/pau_dee_title" />
 
@@ -186,7 +177,6 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/montserrat_bold"
             android:text="@string/client_name"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/client"
             app:layout_constraintTop_toBottomOf="@+id/pau_dee_desc" />
 
@@ -197,7 +187,6 @@
             android:layout_marginStart="24dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/client_desc"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/client"
             app:layout_constraintTop_toBottomOf="@+id/client_title" />
 

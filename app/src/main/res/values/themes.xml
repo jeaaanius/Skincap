@@ -3,7 +3,7 @@
     <style name="Theme.Skincap" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_brown</item>
-        <item name="colorPrimaryVariant">@color/dark_brown</item>
+        <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/cream</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/brushed_teal</item>
@@ -11,7 +11,7 @@
         <item name="colorSecondaryVariant">@color/siam</item>
         <item name="colorOnSecondary">@color/light_brown</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
     </style>
 

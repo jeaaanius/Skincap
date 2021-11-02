@@ -9,7 +9,6 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        app:titleTextColor="@color/black"
         android:elevation="3dp"
         app:titleTextAppearance="@style/TextAppearance.Toolbar"
         style="@style/Widget.MaterialComponents.Toolbar.Surface"
@@ -42,7 +41,6 @@
         android:layout_height="wrap_content"
         app:itemTextAppearanceInactive="@style/TextAppearance.InActive"
         app:itemTextAppearanceActive="@style/TextAppearance.Active"
-        android:background="@drawable/nav_background_curve"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/nav_bar_menu" />
 
