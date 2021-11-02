@@ -9,6 +9,7 @@ public class GlideBinder {
     public static <T> void bindImage(final ImageView imageView, T data) {
         Glide.with(imageView)
                 .asBitmap()
+                .override(imageView.getWidth(), imageView.getHeight())
                 .load(data)
                 .into(imageView);
     }

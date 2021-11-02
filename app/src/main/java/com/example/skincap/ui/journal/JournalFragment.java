@@ -15,7 +15,10 @@ import com.example.skincap.ui.base.BaseFragment;
 
 import java.util.List;
 
-public class JournalFragment extends BaseFragment<FragmentJournalBinding> {
+public class JournalFragment extends BaseFragment<FragmentJournalBinding> implements
+        JournalAdapter.OnJournalItemClickListener {
+
+    private JournalListViewModel viewModel;
 
     public JournalFragment() {
         super(R.layout.fragment_journal);
@@ -28,13 +31,13 @@ public class JournalFragment extends BaseFragment<FragmentJournalBinding> {
 
         binding.floatingButton.setOnClickListener(e -> createIntent());
 
-        new ViewModelProvider(this).get(JournalListViewModel.class)
-                .getJournals()
+        viewModel= new ViewModelProvider(this).get(JournalListViewModel.class);
+        viewModel.getJournals()
                 .observe(getViewLifecycleOwner(), this::setJournals);
     }
 
     private void setJournals(final List<Journal> journals) {
-        final JournalAdapter adapter = new JournalAdapter();
+        final JournalAdapter adapter = new JournalAdapter(this);
         adapter.submitList(journals);
 
         binding.journalList.setAdapter(adapter);
@@ -42,6 +45,22 @@ public class JournalFragment extends BaseFragment<FragmentJournalBinding> {
     }
 
     private void createIntent() {
-        startActivity(new Intent(requireActivity(), CreateJournalActivity.class));
+        startActivity(getJournalActivityIntent());
+    }
+
+    @Override
+    public void onEditJournal(Journal journal) {
+        final Intent intent = getJournalActivityIntent();
+        intent.putExtra("journal_parcelable", journal);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onDeleteJournal(String id) {
+        viewModel.deleteJournal(id);
+    }
+
+    private Intent getJournalActivityIntent() {
+        return new Intent(requireActivity(), CreateJournalActivity.class);
     }
 }
