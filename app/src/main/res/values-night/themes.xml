@@ -54,6 +54,7 @@
     <style name="TextAppearance.ColorCard" parent="android:TextAppearance">
         <item name="android:textColor">#C7C7C7</item>
         <item name="android:background">#424242</item>
+        <item name="drawableTint">#C7C7C7</item>
     </style>
 
     <style name="FloatingButton.Color" parent="Widget.MaterialComponents.FloatingActionButton">

@@ -69,6 +69,7 @@
     <style name="TextAppearance.ColorCard" parent="android:TextAppearance">
         <item name="android:textColor">@color/gray</item>
         <item name="android:background">@color/white</item>
+        <item name="drawableTint">@color/gray</item>
     </style>
 
     <style name="FloatingButton.Color" parent="Widget.MaterialComponents.FloatingActionButton">
