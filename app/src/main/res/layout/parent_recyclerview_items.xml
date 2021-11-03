@@ -7,12 +7,12 @@
 
     <TextView
         android:id="@+id/Skin_category"
-        style="@style/TextAppearance.AppCompat.Medium"
+        style="@style/TextAppearance.Color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:fontFamily="@font/montserrat_alternates_bold"
-        android:textColor="@color/dark_brown"
+        android:textSize="18sp"
         android:textStyle="bold"
         tools:text="Skin Issues" />
 
