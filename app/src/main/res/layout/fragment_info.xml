@@ -190,6 +190,37 @@
             app:layout_constraintStart_toEndOf="@+id/client"
             app:layout_constraintTop_toBottomOf="@+id/client_title" />
 
+        <ImageView
+            android:id="@+id/derma"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/client_desc"
+            app:srcCompat="@drawable/derma" />
+
+        <TextView
+            android:id="@+id/derma_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/derma_name"
+            app:layout_constraintStart_toEndOf="@+id/derma"
+            app:layout_constraintTop_toBottomOf="@+id/client_desc" />
+
+        <TextView
+            android:id="@+id/derma_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/derma_desc"
+            app:layout_constraintStart_toEndOf="@+id/derma"
+            app:layout_constraintTop_toBottomOf="@+id/derma_title" />
+
         <TextView
             android:id="@+id/feutech"
             android:layout_width="wrap_content"
@@ -200,7 +231,7 @@
             android:textColor="@color/siam"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/client_desc"/>
+            app:layout_constraintTop_toBottomOf="@id/derma_desc"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

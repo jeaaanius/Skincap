@@ -52,6 +52,8 @@
     <string name="dev_4_desc">System Content Designer\n</string>
     <string name="client_desc">DTI BIR FDA IPO Vegan Cruelty Free \nIg: elixirheaven \nTiktok: elixirheaven</string>
     <string name="client_name">Elixir Heaven PH (CLIENT)</string>
+    <string name="derma_name">Dra. Angelina Saavedra</string>
+    <string name="derma_desc">Consultant Dermatologist</string>
     <string name="feu_tech">FEU TECH</string>
     <!-- Library -->
     <string name="definition">DEFINITION:</string>
@@ -60,6 +62,7 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="error_gif">x or y bound size should be at least %1$dpx and file size should be no more than %2$sM</string>
+    <string name="skin_consult">"For more accurate information, diagnosis, and suggestions for skin care regimens or products, please consult a medical professional."</string>
 
     <string name="permission_message">To maximize the seamless experience and features when using the app, SkinCap requires access to the following:\n\n• Camera\n• Storage &amp; Media</string>
     <string name="request_permission">Request Permissions</string>
