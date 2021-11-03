@@ -45,15 +45,6 @@
             android:text="@string/start_your_skin_care_journey"
             android:textColor="@color/light_brown"
             android:textStyle="italic" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/checkskin_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="@string/check_your_skin"
-            app:cornerRadius="8dp" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

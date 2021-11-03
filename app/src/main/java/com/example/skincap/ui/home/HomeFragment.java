@@ -30,7 +30,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
         //set the Categories for each array list set in the `ParentViewHolder`
         parentModelArrayList.add(new ParentModel("Skin Types"));
         parentModelArrayList.add(new ParentModel("Skin Issues"));
-        parentModelArrayList.add(new ParentModel("Trending Skin Ingredients"));
+        parentModelArrayList.add(new ParentModel("Most Commonly Used Ingredients"));
 
         VerticalAdapter verticalAdapter = setVerticalAdapter();
         binding.parentListView.setAdapter(verticalAdapter);
