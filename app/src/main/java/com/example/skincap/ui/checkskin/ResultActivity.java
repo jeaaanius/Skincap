@@ -1,12 +1,18 @@
 package com.example.skincap.ui.checkskin;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -433,14 +439,27 @@ public class ResultActivity extends AppCompatActivity {
         white = (white/(length * width))*100;
 
         if(white < 50){
-            for (int i = 0; i<2; i++){
-                Toast.makeText(ResultActivity.this, "Skin Detected is too limited\nTry clearer and closer image, plus good lighting" ,Toast.LENGTH_LONG).show();
-            }
+                new AlertDialog.Builder(ResultActivity.this)
+                        .setTitle("TRY AGAIN!")
+                        .setMessage("Unable to Complete Diagnosis/Analysis\n\nPlease bring the area of concern closer to the camera, make the image clearer, or find a place with better lighting for more accurate results.")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
         }else{
-            Toast.makeText(ResultActivity.this, "Skin Detection Successfull" ,Toast.LENGTH_LONG).show();
+            new AlertDialog.Builder(ResultActivity.this)
+                    .setTitle("HOORAY!")
+                    .setMessage("Skin Detection Successful!")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    }).show();
         }
 
         binding.ivCapture2.setImageBitmap(image2);
         binding.skinDetectTv.setText( String.format("%.2f", white) + "%");
+
     }
 }
