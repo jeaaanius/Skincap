@@ -15,7 +15,51 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Icon.AppBar" parent="Widget.Design.AppBarLayout">
+        <item name="android:background">@drawable/ic_skincap_logo_night</item>
+    </style>
+
+    <style name="Background.BottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@drawable/nav_background_curve_night</item>
+    </style>
+
     <style name="SplashScreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_splashscreen_night</item>
+    </style>
+
+
+
+    <style name="PopupMenu.Journal" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:textColor">@color/dark_brown</item>
+        <item name="fontFamily">@font/montserrat</item>
+        <item name="android:itemBackground">@drawable/menu_dropdown_panel_background_night</item>
+    </style>
+
+    <style name="SkinCapStyle" parent="Matisse.Zhihu">
+        <item name="colorPrimary">@color/light_brown</item>
+        <item name="colorPrimaryDark">@color/light_brown</item>
+        <item name="bottomToolbar.apply.textColor">@color/black</item>
+        <item name="toolbar">@style/ToolbarWhite</item>
+    </style>
+
+    <style name="ToolbarWhite" parent="Toolbar.Zhihu">
+        <item name="android:statusBarColor">@color/light_brown</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+    </style>
+
+    <style name="TextAppearance.Color" parent="android:TextAppearance">
+        <item name="android:textColor">@color/cream</item>
+        <item name="tint">@color/cream</item>
+        <item name="drawableTint">@color/cream</item>
+    </style>
+
+    <style name="TextAppearance.ColorCard" parent="android:TextAppearance">
+        <item name="android:textColor">#C7C7C7</item>
+        <item name="android:background">#424242</item>
+    </style>
+
+    <style name="FloatingButton.Color" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">#424242</item>
+        <item name="tint">@color/cream</item>
     </style>
 </resources>
