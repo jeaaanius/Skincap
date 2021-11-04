@@ -9,7 +9,7 @@ public class LibraryDataSource {
             add(new Library("Acne Papule",
                     "A tiny red lump on the skin. It normally has a diameter of less than 5 millimeters",
                     "The primary causes of papules, and acne in general, include:\n" +
-                            "bacteria, excess oil production, excess activity of androgens (male sex hormones)\n" +
+                            "bacteria, excess oil production, excess activity of androgens (male sex hormones)\n\n" +
                             "Acne can also be triggered or aggravated by:\n" +
                             "stress, diet (such as consuming too much sugar)",
                     "► Benzoyl peroxide\n" +
@@ -42,7 +42,7 @@ public class LibraryDataSource {
                             "ageing and exposure to the sun.\n\n" +
                             "► Niacinamide\n" +
                             "can be used to treat a wide range of skin issues, including acne, rosacea, " +
-                            "hyperpigmentation and wrinkles. Additionally, it provides plenty of benefits " +
+                            "hyperpigmentation and wrinkles.\n\nAdditionally, it provides plenty of benefits " +
                             "for the skin, helping to increase collagen production, reduce moisture loss, " +
                             "improve fine lines and wrinkles, protect the skin barrier and minimize the " +
                             "appearance of pores and dark spots caused by sun exposure."));
@@ -94,19 +94,19 @@ public class LibraryDataSource {
                             "as in perioral dermatitis, vitamin B3 also has an anti-inflammatory " +
                             "effect which is comparable to clindamycin.\n\n" +
                             "► Provitamin B5 (INCI: D-panthenol)\n" +
-                            "the pre-stage of pantothenic acid improves the skin hydration." +
+                            "the pre-stage of pantothenic acid improves the skin hydration. " +
                             "It improves the cell formation and epithelialization after skin lesions " +
                             "and inhibits the itching.\n\n" +
                             "► Green tea (camellia leaf extract)\n" +
                             "Calms and helps regulate sebum production to promote a balanced, clear complexion."));
             add(new Library("Milia",
                     "Typically develops on the nose and cheeks as a little white lump.",
-                    "In older children and adults, milia are typically associated with some type of damage to the skin. This may include:\n" +
-                            "burns\n" +
-                            "long-term sun damage\n" +
-                            "long-term use of steroid creams\n",
+                    "In older children and adults, milia are typically associated with some type of damage to the skin.\n\nThis may include:\n\n" +
+                            "• burns\n" +
+                            "• long-term sun damage\n" +
+                            "• long-term use of steroid creams",
                     "► Curettage\n" +
-                            "*Note: not an ingredient, but a dermatological procedure*\n" +
+                            "*Note: not an ingredient, but a dermatological procedure*\n\n" +
                             "With this procedure, the dermatologist scrapes off the milia then seals " +
                             "the skin with a hot wire."));
             add(new Library("Oily",
