@@ -1,5 +1,6 @@
 package com.example.skincap.ui.home;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.skincap.R;
 import com.example.skincap.util.GlideBinder;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.MyViewHolder> {
 
-    public List<ChildModel> childModelArrayList;
+    public ArrayList<ChildModel> childModelArrayList;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public ImageView skinImage;
@@ -33,7 +34,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.My
     @LayoutRes
     private final int layoutId;
 
-    public HorizontalAdapter(List<ChildModel> arrayList, @LayoutRes int layoutId) {
+    public HorizontalAdapter(ArrayList<ChildModel> arrayList, @LayoutRes int layoutId, Context context) {
         this.childModelArrayList = arrayList;
         this.layoutId = layoutId;
     }
