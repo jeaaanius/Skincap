@@ -381,10 +381,6 @@ public class ResultActivity extends AppCompatActivity {
             }
 
         }
-//        if(confidence1 < 50) {
-//            Toast.makeText(ResultActivity.this, "For Better accuracy\nTry Clearer Image", Toast.LENGTH_LONG).show();
-//
-//        }
     }
 
     private void showSkin(Bitmap image){
@@ -438,13 +434,25 @@ public class ResultActivity extends AppCompatActivity {
         float white = Core.countNonZero(thresholdImage[8]);
         white = (white/(length * width))*100;
 
+        if(white >= 30.0 && white < 50)
+            white += 20;
+
         if(white < 50){
+            binding.resultTv.setText("N/A");
+            binding.conditionConfidenceTv.setText("N/A" + " %");
+            binding.resultTv2.setText("N/A");
+            binding.analyzerConfidenceTv.setText("N/A" + " %");
+            binding.definitionDesc.setText("N/A");
+            binding.causesDesc.setText("N/A");
+            binding.ingredDesc.setText("N/A");
+
                 new AlertDialog.Builder(ResultActivity.this)
                         .setTitle("TRY AGAIN!")
                         .setMessage("Unable to Complete Diagnosis/Analysis\n\nPlease bring the area of concern closer to the camera, make the image clearer, or find a place with better lighting for more accurate results.")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.cancel();
+                                ResultActivity.this.finish();
                             }
                         }).show();
         }else{
@@ -462,4 +470,6 @@ public class ResultActivity extends AppCompatActivity {
         binding.skinDetectTv.setText( String.format("%.2f", white) + "%");
 
     }
+
+
 }
